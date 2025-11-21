@@ -1,0 +1,3 @@
+#!/bin/sh
+IMAGE=blang/latex
+exec docker run --rm -it -v "$PWD":/data "$IMAGE" pdflatex "$@"
