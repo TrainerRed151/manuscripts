@@ -1,3 +1,12 @@
-#!/bin/sh
+#!/usr/bin/env bash
+#
+# Usage: ./make-signatures ARG1 ARG2
+#
+# ARG1  - manuscript pdf file (from pdflatex output)
+# ARG2  - number of manuscript pages per signature (4x the number of sheets)
+#
+#
+# Copyright © 2025 Brian Pomerantz. All Rights Reserved.
+
 IMAGE=blang/latex
 exec docker run --rm -it -v "$PWD":/data "$IMAGE" pdfjam --landscape --nup 2x1 --signature "$2" --paper letterpaper "$1"
