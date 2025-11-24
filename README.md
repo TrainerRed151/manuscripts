@@ -4,10 +4,11 @@ This repository contains the scripts, LaTeX sources, and supporting materials us
 
 ## Contents
 
-* **`scripts/`** — Python, Bash, and other scripts used for preprocessing text from HTML for LaTeX and compiling LaTeX files into signatures.
-* **`books/`** — Source text for individual books (original manuscript text, public domain text, or third-party text included with permission).
-* **`requirments.txt`** - Python required packages.
-* **`LICENSE`** — Licensing terms for the materials in this repository.
+* **`scripts/`** -- Python, Bash, and other scripts used for preprocessing text from HTML for LaTeX and compiling LaTeX files into signatures.
+* **`books/`** -- Source text for individual books (original manuscript text, public domain text, or third-party text included with permission).
+* **`cad_designs/`** -- OpenSCAD and STL files for bookbinding tools (see LICENSE in directories where applicable).
+* **`requirments.txt`** -- Python required packages.
+* **`LICENSE`** -- Licensing terms for the materials in this repository.
 
 ## Purpose
 
