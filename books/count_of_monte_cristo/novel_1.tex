@@ -30,6 +30,7 @@
 % Formatting
 %------------------------------------------------
 \pagestyle{myheadings}
+\usepackage{enumitem}
 
 \aliaspagestyle{part}{empty}
 \aliaspagestyle{chapter}{empty}
@@ -92,7 +93,6 @@
   \stepcounter{notes}%
   \noindent {\small \textbf{\arabic{notes}.}\,}#1
 }
-
 
 
 %------------------------------------------------
@@ -189,7 +189,7 @@ Printed in the United States of America.
 
 \mychapterstar{Chronology}
 
-\begin{description}
+\begin{description}[leftmargin=1em]
 \item[\textbf{1802}] Alexandre Dumas is born at Villers-Cotter\^ets, the third
 child of Thomas-Alexandre Dumas. His father, himself the illegitimate
 son of a marquis and a slave girl of San Domingo, Marie-Cessette Dumas,
