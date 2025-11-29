@@ -34,19 +34,34 @@
 \aliaspagestyle{part}{empty}
 \aliaspagestyle{chapter}{empty}
 
-\newcommand{\mychapter}[1]{%
+\newcommand{\mychapter}[2]{%
   \refstepcounter{chapter}%
   \markboth{\footnotesize THE COUNT OF MONTE CRISTO}{\footnotesize \MakeUppercase{#1}}
   \addcontentsline{toc}{chapter}{\makebox[2em][r]{\thechapter}\hspace*{1em}\MakeUppercase{#1}}%
+  % no skip on first chapter
+  \def\temp{#2}%
+  \def\first{first}%
+  \ifx\temp\first%
+    % no skip
+  \else%
+    \bigskip%
+    \bigskip%
+  \fi%
   \begin{center}%
-  \large \thechapter\par%
-  %\vspace{0.5em}%
+  \large \thechapter\par\nopagebreak%
   \large \MakeUppercase{#1}\par%
   \end{center}
 }
 
 \newcommand{\mychapterstar}[1]{%
-  \chapter*{\LARGE #1}%
+  \cleardoublepage%
+  \thispagestyle{empty}
+  \bigskip%
+  \begin{center}%
+    \LARGE #1%
+  \end{center}%
+  \bigskip%
+  \bigskip%
   \markboth{\footnotesize \MakeUppercase{#1}}{\footnotesize \MakeUppercase{#1}}%
   \addcontentsline{toc}{chapter}{#1}
 }
@@ -59,6 +74,26 @@
 
 \setlength{\cftbeforepartskip}{1em}  % space before chapters
 \setlength{\cftbeforechapterskip}{0.5em}  % space before chapters
+
+% End Notes
+
+\newcommand{\chapternotes}[1]{%
+  \setcounter{notes}{0}
+  \refstepcounter{chapter}%
+  \bigskip%
+  \bigskip%
+  \begin{center}%
+  \large \thechapter\par\nopagebreak%
+  \large \MakeUppercase{#1}\par%
+  \end{center}
+}
+
+\newcommand{\mynote}[1]{%
+  \stepcounter{notes}%
+  \noindent {\small \textbf{\arabic{notes}.}\,}#1
+}
+
+
 
 %------------------------------------------------
 % Front matter
@@ -971,7 +1006,7 @@ surely agree that it is long overdue.
 \addcontentsline{toc}{part}{Part 1}
 \part*{Part 1}
 
-\mychapter{Marseille -- Arrival}
+\mychapter{Marseille -- Arrival}[first]
 
 On February 24, 1815, the lookout at Notre-Dame de la Garde signalled
 the arrival of the three-master \emph{Pharaon}, coming from Smyrna,
@@ -1432,10 +1467,6 @@ awaiting orders but in reality, like him, watching the young sailor's
 departure. Yet there were very different expressions in these two pairs
 of eyes following the one man.
 
-\bigskip
-
-\bigskip
-
 \mychapter{Father and Son}
 
 We shall leave Danglars, gripped by the demon of hatred, trying to
@@ -1805,10 +1836,6 @@ Old Pamphile had seen Dant\`es go by less than two minutes before. Certain
 that he was in Les Catalans, they sat under the budding leaves of the
 plane-trees and sycamores, in the branches of which a happy band of
 birds was serenading one of the first fine days of spring.
-
-\bigskip
-
-\bigskip
 
 \mychapter{Les Catalans}
 
@@ -2299,7 +2326,1059 @@ voyage!}'
 Then the two lovers went on their way, calm and happy as two chosen
 souls heading for paradise.
 
+\mychapter{The Plot}
+
+Danglars' eyes followed Edmond and Merc\'ed\`es until the two lovers had
+vanished round one corner of the Fort Saint-Nicholas; then, turning at
+last, he noticed Fernand who had slipped back on to his chair, pale and
+trembling, while Caderousse was mumbling the words of a drinking song.
+
+`So, my good sir,' Danglars told Fernand, `not everyone, I think, is
+happy about this marriage.'
+
+`I am in despair,' said Fernand.
+
+`You're in love with Merc\'ed\`es?'
+
+`I adore her!'
+
+`For a long time?'
+
+`Ever since I've known her; I've always loved her.'
+
+`And all you can do is sit there and tear your hair out, instead of
+finding some way out of the dilemma! By God! I didn't know that this was
+how people of your country behaved.'
+
+`What do you expect me to do?' Fernand asked.
+
+`How do I know? Is it any of my business? As I see it, I'm not the one
+who's in love with Mademoiselle Merc\'ed\`es; you are. Seek and ye shall
+find, the Gospel says.'
+
+`I had found already.'
+
+`What?'
+
+`I wanted to put my knife into the creature, but the girl said that if
+her fianc\'e was harmed, she would kill herself.'
+
+`Pah! People say such things, but they don't do them.'
+
+`You don't know Merc\'ed\`es, Monsieur. If she threatens to do something,
+she will.'
+
+`Idiot!' Danglars muttered. `What does it matter whether she kills
+herself or not, provided Dant\`es does not become captain.'
+
+`And before Merc\'ed\`es dies,' Fernand went on, in firmly resolute tones,
+`I should die myself.'
+
+`There's love for you!' Caderousse said, in a voice increasingly slurred
+by drink. `There's love, or I don't know it.'
+
+`Come now,' said Danglars. `You seem an agreeable enough lad to me and
+-- by Jove! -- I'd like to ease your sorrow, but \ldots'
+
+`Yes,' said Caderousse. `Come now.'
+
+`My good friend,' Danglars remarked, `you are three-quarters drunk: go
+the whole way and finish the bottle. Drink, but don't interfere with our
+business, because you need a clear head for what we're doing.'
+
+`Me? Drunk?' said Caderousse. `Never! I could take another four of your
+bottles, which are no bigger than bottles of eau de Cologne. P\`ere
+Pamphile! Bring us some wine!'
+
+And, to make the point, Caderousse banged his glass on the table.
+
+`You were saying, Monsieur?' Fernand asked, impatient to hear what else
+Danglars had to tell him.
+
+`What was I saying? I don't remember. This drunkard Caderousse has put
+it quite out of my mind.'
+
+`Drunkard if you like. A curse on those who fear wine: it's because they
+have evil thoughts and they are afraid that wine will loosen their
+tongues.'
+
+Caderousse began to sing the last two lines of a song which was much in
+vogue at the time:
+
+\begin{quote}
+\small
+The Flood proved it beyond a doubt:\\
+All wicked men do water drink.\textsuperscript{1}
+\end{quote}
+
+`You were saying, Monsieur,' Fernand continued, `that you'd like to ease
+my sorrow, but you added \ldots'
+
+`Ah, yes. But I added that \ldots{} to give you satisfaction, it is
+enough for Dant\`es not to marry the one you love. And this marriage, it
+seems to me, could very well not take place, even if Dant\`es does not
+die.'
+
+`Only death will separate them,' said Fernand.
+
+`You have the brains of an oyster, my friend,' said Caderousse. `And
+Danglars here, who is a sharp one, crafty as a Greek, will prove you
+wrong. Do it, Danglars. I've stuck up for you. Tell him that Dant\`es
+doesn't have to die. In any case, it would be a pity if he died. He's a
+good lad, Dant\`es. I like him. Your health, Dant\`es.'
+
+Fernand rose impatiently to his feet.
+
+`Let him babble,' Danglars said, putting a hand on the young man's arm.
+`And, for that matter, drunk as he is, he is not so far wrong. Absence
+separates as effectively as death; so just suppose that there were the
+walls of a prison between Edmond and Merc\'ed\`es: that would separate them
+no more nor less than a tombstone.'
+
+`Yes, but people get out of prison,' said Caderousse, who was gripping
+on to the conversation with what remained of his wits. `And when you get
+out of prison and you are called Edmond Dant\`es, you take revenge.'
+
+`What does that matter!' said Fernand.
+
+`In any event,' Caderousse continued, `why should they put Dant\`es in
+prison? He hasn't stolen anything, killed anyone, committed any murder.'
+
+`Shut up,' said Danglars.
+
+`I don't want to shut up,' said Caderousse. `I want to know why they
+should put Dant\`es in prison. I like Dant\`es. Dant\`es! Your health!'
+
+He poured back another glass of wine.
+
+Danglars assessed the extent of the tailor's drunkenness from his dull
+eyes, and turned towards Fernand.
+
+`So, do you understand that there is no need to kill him?' he said.
+
+`No, surely not if, as you said a moment ago, there was some means of
+having Dant\`es arrested. But do you have such a means?'
+
+`If we look,' Danglars answered, `we can find one. But, dammit, why
+should this concern me? What business is it of mine?'
+
+`I don't know why it should concern you,' Fernand said, grasping his
+arm. `What I do know is that you have some private animosity against
+Dant\`es: a man who feels hated cannot be mistaken about that feeling in
+others.'
+
+`I? Have some reason to hate Dant\`es? None, I swear. I saw that you were
+unhappy and took an interest in your unhappiness, that's all. But if you
+are going to imagine that I am acting on my own behalf, then farewell,
+my good friend. You can manage for yourself.' Here Danglars himself made
+as if to get up.
+
+`No, stay!' said Fernand. `When it comes down to it, it's of no matter
+to me whether you have some bone to pick with Dant\`es or not; I do, and I
+freely admit it. Find the means and I shall carry it out, as long as
+there is no murder involved, for Merc\'ed\`es said that she would kill
+herself if anyone killed Dant\`es.'
+
+Caderousse, who had let his head fall on the table, lifted it and turned
+his dull, drink-sodden eyes on Fernand and Danglars.
+
+`Kill Dant\`es!' he said. `Who's talking about killing Dant\`es? I don't
+want him killed. He's my friend. This morning, he offered to share his
+money with me, as I shared mine with him. I don't want anyone to kill
+Dant\`es.'
+
+`Who said anything about killing him, idiot?' Danglars went on. `It's
+nothing more than a joke. Drink to his health and leave us be,' he
+added, filling Caderousse's glass.
+
+`Yes, yes. To Dant\`es' health,' said Caderousse, emptying his glass. `His
+health! His health! Like that!'
+
+`But the means, what about the means?' Fernand asked.
+
+`You haven't thought of any yet?'
+
+`No, you said that you would do that.'
+
+`That's true,' said Danglars. `A Spaniard is inferior to a Frenchman in
+one respect: your Spaniard thinks things over, but your Frenchman thinks
+them up.'
+
+`Well, think up something, then,' Fernand said impatiently.
+
+`Waiter!' Danglars called. `A pen, ink and paper!'
+
+`A pen, ink and paper,' Fernand muttered.
+
+`Yes, I am an accountant: pens, ink and paper are the tools of my trade,
+and without them I can do nothing.'
+
+`A pen, some ink and some paper!' Fernand repeated to the waiter.
+
+`What you need is over there on the table,' the waiter said, indicating
+the items they had requested.
+
+`Give them to us, then.'
+
+The waiter brought the paper, some ink and a quill pen, and put them on
+the table in the arbour.
+
+`When you think,' Caderousse said, letting his hand fall on to the
+paper, `that what you have here can kill a man more surely than if you
+were to hide in the woods to murder him! I have always been more afraid
+of a pen, a bottle of ink and a sheet of paper than of a sword or a
+pistol.'
+
+`This clown is not yet as drunk as he seems,' said Danglars. `Pour him
+another drink, Fernand.'
+
+Fernand filled Caderousse's glass and he, like the true drunkard he was,
+took his hand off the paper and moved it to his glass. The Catalan
+watched him until Caderousse, almost floored by this new assault, put
+his glass back -- or, rather, let it fall -- on to the table.
+
+`Well?' the Catalan asked, seeing that the last traces of Caderousse's
+wits had begun to disappear in this final draught of wine.
+
+`As I was saying,' Danglars continued, `for example, after a voyage such
+as the one Dant\`es has just made, in the course of which he put in at
+Naples and the island of Elba, if someone were to denounce him to the
+crown prosecutor\textsuperscript{2} as a
+Bonapartist agent \ldots'
+
+`I'll denounce him, I'll do it!' the young man said eagerly.
+
+`Yes, but in that case you would have to sign your declaration and be
+confronted with the man you accused: I could give you proof to support
+your accusation, I know; but Dant\`es cannot stay in prison for ever; one
+day he will come out, and on that day, woe betide the one who put him
+there!'
+
+`Oh, I couldn't ask for anything better,' said Fernand. `Let him come
+and challenge me.'
+
+`Yes, but what about Merc\'ed\`es? Merc\'ed\`es who will hate you if you are
+unfortunate enough to leave even a scratch on her beloved Edmond!'
+
+`That's true,' said Fernand.
+
+`No, no,' Danglars continued. `You see, if we were to make up our minds
+to such a thing, it would be far better simply to do as I am doing now,
+and take this pen, dip it in the ink and, with one's left hand -- to
+disguise the writing -- make out a little denunciation in these terms.'
+
+To illustrate his meaning, Danglars wrote the following lines, with his
+left hand, the writing sloping backwards so that it bore no resemblance
+to his usual handwriting, then passed it to Fernand, who read it in a
+hushed voice:
+
+\begin{quote}
+\small
+The crown prosecutor is advised, by a friend of the monarchy and the
+faith, that one Edmond Dant\`es, first mate of the \emph{Pharaon},
+arriving this morning from Smyrna, after putting in at Naples and Porto
+Ferrajo, was entrusted by
+Murat\textsuperscript{3} with a letter for the
+usurper and by the usurper with a letter to the Bonapartist committee in
+Paris.
+
+Proof of his guilt will be found when he is arrested, since the letter
+will be discovered either on his person, or at the house of his father,
+or in his cabin on board the \emph{Pharaon}.
+\end{quote}
+
+`So there we have it,' Danglars continued. `In this way your revenge
+would be consistent with common sense, because it could in no way be
+traced back to you and the matter would proceed of its own accord. You
+would merely have to fold the letter -- as I am doing now -- and write
+on it: ``To the Crown Prosecutor''. That would settle it.' And Danglars
+wrote the address with a simple stroke of the pen.
+
+`Yes, that would settle it,' cried Caderousse, who had made one final
+effort to muster his wits and follow the reading of the letter, and
+understood instinctively all the misfortune that such a denunciation
+could bring. `Yes, that would settle it, except that it would be a vile
+act.' And he reached over to take the letter.
+
+`Which is why,' said Danglars, pushing it beyond the reach of his hand,
+`which is why what I am saying and doing is simply in jest; and I should
+be the first to be upset if anything were to happen to Dant\`es -- dear
+Dant\`es! So, watch \ldots'
+
+He took the letter, crumpled it in his hands and threw it into a corner
+of the arbour.
+
+`That's right,' said Caderousse. `Dant\`es is my friend and I don't want
+anyone to harm him.'
+
+`The devil take it! Whoever would think of doing him harm? Certainly not
+I or Fernand!' said Danglars, getting up and looking at the young man,
+who had remained seated but who had his covetous eye fixed sideways on
+the accusing letter where it had fallen.
+
+`In that case,' Caderousse went on, `bring us more wine: I want to drink
+to the health of Edmond and the lovely Merc\'ed\`es.'
+
+`You have had enough to drink already, you tippler,' said Danglars. `If
+you go on, you will have to sleep here, because you won't be able to
+stand up.'
+
+`Me?' said Caderousse, rising with the ridiculous movement of a drunken
+man. `Me! Not be able to stand up! I wager I could go up the belfry of
+Les Accoules, and without wavering.'
+
+`Well, if you wish,' said Danglars. `I accept the wager, but for
+tomorrow. Today it is time to go home, so give me your arm and we'll get
+started.'
+
+`Let's go,' said Caderousse, `but I don't need your arm for it. Are you
+coming, Fernand? Come with us to Marseille.'
+
+`No,' said Fernand. `I'm going back to Les Catalans.'
+
+`Don't be silly. Come with us to Marseille. Come on.'
+
+`I have no business in Marseille and I don't want to go there.'
+
+`What did you say? You don't want to, my lad! Well, do as you wish.
+Everyone can do as he wishes. Come on, Danglars, and let this gentleman
+go back to the Catalans, since that's what he wants.'
+
+Danglars took advantage of Caderousse's momentary amenability to drag
+him towards Marseille; but, to leave a shorter and easier way free for
+Fernand, instead of going back via the Quai de la Rive-Neuve, he went
+through the Porte Saint-Victor. Caderousse followed, swaying and
+gripping his arm.
+
+When he had gone some twenty yards, Danglars turned around and saw
+Fernand grab the piece of paper and put it in his pocket. Then, running
+out of the arbour, the young man immediately went in the direction of Le
+Pillon.
+
+`There, now! What's he up to?' said Caderousse. `He lied to us. He said
+he was going to Les Catalans, and he's headed into town. Hey, Fernand,
+my boy! You're going the wrong way!'
+
+`It's you who can't see properly,' said Danglars. `He has gone straight
+down the road to the Vieilles-Infirmeries.'
+
+`Has he?' said Caderousse. `Well, now, I could have sworn that he turned
+to the right. Wine really is a deceiver.'
+
+`Come on, come on,' Danglars muttered. `I think that the matter is
+properly under way now, and all we have to do is to let it take its
+course.'
+
+\mychapter{The Betrothal}
+
+The next day, the weather was fine. The sun rose, brilliant and clear,
+and its first purple rays glistened like rubies on the foamy crests of
+the waves.
+
+The meal had been set out on the first floor of the same inn, La
+R\'eserve, with the terrace of which we are already acquainted. It was a
+large room, lit by five or six windows, above each of which (for some
+inexplicable reason) was inscribed the name of one of the great towns of
+France. A gallery -- of wood, like the rest of the building -- ran the
+whole length of the room under the windows.
+
+Although the meal was due to begin only at noon, this gallery was
+crowded with impatient onlookers from eleven o'clock in the morning.
+These were a few chosen sailors from the \emph{Pharaon} and some
+soldiers who were Dant\`es' friends. All of them were in their Sunday
+best, in honour of the engaged couple.
+
+The rumour circulating among these expectant guests was that the owners
+of the \emph{Pharaon} were to honour its first mate's betrothal feast
+with their presence, but this would have been to do such a great honour
+to Dant\`es that no one yet dared believe it. However, Danglars, when he
+arrived with Caderousse, confirmed the news: he had seen M. Morrel
+himself, that morning, and M. Morrel had said that he would be dining at
+La R\'eserve.
+
+Indeed, a moment later, M. Morrel made his entrance into the room and
+was saluted by the crew of the \emph{Pharaon} with a unanimous burst of
+applause and shouts of `Hurrah!' The owner's presence was seen by them
+as confirmation of a rumour, already going about, that Dant\`es was to be
+appointed captain; and, since Dant\`es was much liked on board, the men
+took this way of thanking the owner because, for once, his choice was
+concordant with their wishes. Hardly had M. Morrel entered than Danglars
+and Caderousse were, by general agreement, dispatched to find the
+fianc\'e, with orders to advise him of the arrival of this important
+person whose appearance had caused such a stir, and to tell him to
+hurry.
+
+Danglars and Caderousse set off at full speed, but had hardly gone any
+distance before they saw the little band approaching, just coming past
+the powder magazine. It was made up of four young women, friends of
+Merc\'ed\`es and Catalans like her, who were accompanying the fianc\'ee while
+Edmond gave her his arm. Next to her walked Old Dant\`es and behind them
+came Fernand, with his sour smile.
+
+Neither Merc\'ed\`es nor Edmond could see the smile on Fernand's face. The
+poor children were so happy that they saw nothing except one another and
+the pure, clear sky that showered its blessing on them.
+
+Danglars and Caderousse discharged their diplomatic mission, then
+exchanged a warm and energetic handshake with Edmond, and took up their
+places, Danglars next to Fernand and Caderousse beside Old Dant\`es, who
+was the general centre of attention.
+
+The old man was wearing his fine coat of fluted taffeta, decorated with
+large-faceted steel buttons. His lanky but vigorous legs were clothed in
+a splendid pair of spotted stockings that cried out English contraband.
+A mass of white and blue ribbons hung from his three-cornered hat.
+Finally, he was supported by a stick of twisted wood, bent at the top
+like a classical staff or \emph{pedum}. He looked like one of those
+dandies who used to parade in 1796 in the newly re-opened gardens of the
+Luxembourg or the Tuileries.
+
+As we said, Caderousse had slipped into step beside him -- Caderousse,
+entirely reconciled with the Dant\`es by the prospect of a good meal,
+Caderousse whose mind retained some vague memory of what had happened
+the previous day, as one's brain on waking in the morning may hold a
+shadow of the dream that it experienced in sleep.
+
+As he came up to Fernand, Danglars searched deep into the disappointed
+lover's soul. He was walking behind the engaged couple, entirely
+forgotten by Merc\'ed\`es, who, with the childlike and endearing egoism of
+love, had eyes only for her Edmond. Fernand was pale, then his colour
+would heighten suddenly, only to give way again to a deepening pallor.
+From time to time he looked towards Marseille, and an involuntary
+nervous tremor would shake his limbs. He seemed to be expecting, or at
+least to anticipate the possibility of, some important event.
+
+Dant\`es was dressed simply. Since he belonged to the merchant marine, his
+clothes were halfway between military uniform and civilian dress; in
+this habit, his evident good health, set off against the happiness and
+beauty of his fianc\'ee, was perfect.
+
+Merc\'ed\`es was as lovely as one of those Greek women of Cyprus or Chios,
+with jet-black eyes and coral lips. She stepped out with the frankness
+and freedom of an Arl\'esienne or an Andalusian woman. A city girl might
+perhaps have tried to conceal her joy under a veil or at least beneath
+the velvet shade of her eyelids, but Merc\'ed\`es smiled and looked at all
+those around her; and her look and her smile said as plainly as she
+could have in words: if you are my friends, rejoice with me, because I
+am truly happy!
+
+As soon as the couple and those accompanying them were in sight of La
+R\'eserve, M. Morrel came down and set out to meet them, followed by the
+sailors and soldiers: he had stayed with them to renew the promise he
+had already made to Dant\`es himself, that he would succeed Captain
+Lecl\`ere. Seeing him approach, Edmond let go of his fianc\'ee's arm, which
+he placed under M. Morrel's. Thus the shipowner and the young woman gave
+a lead by going first up the wooden stairs leading to the room where
+dinner was served, and the staircase groaned for five minutes under the
+heavy feet of the guests.
+
+`Father,' Merc\'ed\`es said, stopping at the middle of the table, `you go on
+my right, I pray you; and on my left, I shall place the one who has been
+a brother to me.' She spoke with such softness that it struck Fernand to
+the depth of his soul like a blow from a dagger. His lips paled and,
+under the tanned colouring of his masculine features, you could once
+more see the blood draining bit by bit as it flooded into his heart.
+
+Meanwhile Dant\`es had done the same: on his right, he placed M. Morrel,
+and on his left Danglars. Then he signalled to everyone to sit down
+wherever they wished.
+
+Already the guests were passing round the strong-smelling Arles sausage
+with its brown flesh, crayfish in their dazzling armour, pink-shelled
+clams, sea-urchins looking like chestnuts in their spiny cases, and
+\emph{clovisses}, those shellfish that gourmets from the South claim are
+more than an adequate substitute for the oysters of northern waters; in
+short, all the delicate hors-d'oeuvres that are washed up by the waves
+on these sandy shores and to which grateful fishermen accord the general
+appellation of \emph{fruits de mer}.
+
+`Why this silence?' the old man exclaimed, sipping a glass of a wine as
+yellow as topaz, which P\`ere Pamphile in person had just set down in
+front of Merc\'ed\`es. `Who would imagine that there are thirty people here
+who ask nothing better than to be merry?'
+
+`Huh! A husband is not always merry,' said Caderousse.
+
+`The fact is,' Dant\`es said, `that I am too happy at this moment to be
+merry. If that's what you mean, neighbour, you are right. Joy may
+sometimes produce strange effects and be as oppressive as sorrow.'
+
+Danglars was watching Fernand, whose impressionable nature absorbed and
+reflected his every feeling.
+
+`Come now,' he said. `Have you anything to fear? It seems to me, on the
+contrary, that everything is working out as you would wish.'
+
+`That is precisely what terrifies me,' said Dant\`es. `I cannot think that
+man is meant to find happiness so easily! Happiness is like one of those
+palaces on an enchanted island, its gates guarded by dragons. One must
+fight to gain it; and, in truth, I do not know what I have done to
+deserve the good fortune of becoming Merc\'ed\`es' husband.'
+
+`Husband! Husband!' Caderousse said, laughing. `Not yet, Captain. Try
+behaving like her husband right now and you'll see how she treats you.'
+
+Merc\'ed\`es blushed.
+
+Fernand was shuffling on his chair, starting at the slightest noise and,
+from time to time, wiping large beads of sweat from his forehead, which
+seemed to have fallen there like the first drops of rain before a storm.
+
+`By heaven, neighbour,' said Dant\`es, `you have no need to give me the
+lie for so little. It's true, Merc\'ed\`es is not yet my wife, but \ldots'
+(he took out his watch) ` \ldots{} in an hour and a half, she will be!'
+
+There was a gasp of surprise from everyone, except Old Dant\`es, who
+exhibited his fine set of teeth in a broad laugh. Merc\'ed\`es smiled and
+was no longer blushing. Fernand made a convulsive lunge towards the
+handle of his dagger.
+
+`In an hour!' said Danglars, himself going pale. `How is that?'
+
+`Yes, friends,' Dant\`es replied. `Thanks to an advance from Monsieur
+Morrel, the man to whom -- after my father -- I owe the most in the
+world, all our difficulties have been overcome. We have paid for the
+banns and at half-past two the Mayor of Marseille is expecting us at the
+Town Hall. Now, since it has just sounded a quarter past one, I think I
+am not much mistaken in saying that in one hour and thirty minutes
+Merc\'ed\`es will be Madame Dant\`es.'
+
+Fernand closed his eyes. A fiery cloud was burning behind their lids and
+he grasped the table to keep himself from fainting; but, despite his
+efforts to do so, he could not repress a deep groan that was drowned by
+laughter and the congratulations of the guests.
+
+`That's the way to do it, no?' Old Dant\`es said. `What would you say? Has
+he wasted any time? Disembarked yesterday morning, married today at
+three o'clock! Trust a sailor to get the job done without messing
+around.'
+
+`But,' Danglars put in timidly, `what about the other formalities: the
+contract, the settlement?'
+
+`The contract!' Dant\`es said with a laugh. `The contract is already made:
+Merc\'ed\`es has nothing, and neither have I! We shall be married under a
+settlement of common estate, that's all. It took little time to write
+out and won't be expensive.'
+
+This sally brought a further round of applause and hurrahs.
+
+`So, what we thought was a betrothal is nothing less than a wedding
+feast,' said Danglars.
+
+`Not so,' said Dant\`es. `Don't worry, you won't be missing anything.
+Tomorrow morning, I leave for Paris: four days to travel there, four
+days to return and a day to carry out my errand conscientiously. On
+March the first I shall be back; on March the second, then, we shall
+have the real wedding feast.'
+
+The prospect of a second meal increased the level of hilarity to such a
+point that Old Dant\`es, who had complained of the silence at the start of
+the dinner, was now making futile efforts, in the midst of the general
+hubbub, to propose a toast to the prosperity of the happy couple.
+
+Dant\`es guessed what was in his father's mind and replied with a smile
+full of filial love. Merc\'ed\`es had started to watch the time on the
+cuckoo clock in the room, and she made a sign to Edmond.
+
+Around the table reigned the noisy merriment and freedom of manners
+that, among people of the lower orders, are common accompaniments to the
+end of a meal. Those who were dissatisfied with their places had got up
+from the table and gone to find new neighbours. Everyone had started to
+speak at once, and no one was bothering to listen to what the person
+next to him was saying, but was concerned only with his own thoughts.
+
+Fernand's pallor was almost reflected on the cheeks of Danglars; as for
+Fernand himself, all life appeared to have left him and he was like one
+of the damned in a lake of fire. He had been among the first to get up
+and was striding backwards and forwards across the room, trying to block
+his ears to the sound of songs and clinking glasses.
+
+Caderousse went over to him, just as Danglars, whom he had apparently
+been trying to avoid, caught up with him in a corner of the room.
+
+`I must say,' Caderousse remarked, the last remnants of the hatred which
+Dant\`es' unexpected good fortune had sowed in his mind having succumbed
+to Dant\`es' joviality and, above all, to P\`ere Pamphile's excellent wine.
+`Dant\`es is a good fellow and when I see him like this beside his fianc\'ee
+I feel that it would have been a pity to play the unkind trick on him
+that you were plotting yesterday.'
+
+`Well, then,' Danglars replied, `you can see that the matter went no
+further. Poor Monsieur Fernand was so upset that, at first, I felt sorry
+for him; but now that he has made up his mind to accept the situation,
+to the point of allowing himself to become his rival's best man, there
+is nothing more to be said.'
+
+Caderousse looked at Fernand. He was deathly pale.
+
+`The sacrifice is all the greater,' Danglars went on, `as the girl is so
+decidedly pretty. Dammit! My future captain is a lucky dog: I wish I
+could be in his shoes for just half a day.'
+
+`Shall we go?' Merc\'ed\`es said softly. `It is striking two and we are
+expected at a quarter past.'
+
+`Yes, yes, let's go,' Dant\`es exclaimed, leaping to his feet.
+
+`Let's go!' all the guests repeated in unison.
+
+At that moment Danglars, who had not taken his eyes off Fernand where he
+was sitting on the window-ledge, saw him look up frantically, rise as
+though with a convulsive start, then fall back on to his seat in the
+casement. At almost the same moment a dull sound echoed through the
+stairway, the sound of heavy footsteps and confused voices, mingled with
+the clanking of weapons, which rose above the exclamations of the guests
+(loud though these were) and instantly attracted everybody's attention,
+creating an uneasy hush.
+
+The sounds drew closer. Three knocks sounded on the door, and all those
+in the room looked at their neighbours in astonishment.
+
+`Open, in the name of the law!' cried a voice, in a resounding tone. No
+one answered. At once the door flew open and a commissioner of
+police,\textsuperscript{1} wearing his sash,
+strode into the room, followed by four armed soldiers under the command
+of a corporal.
+
+Uneasiness gave way to terror.
+
+`What is wrong?' the shipowner asked, going over to the commissioner,
+whom he knew. `Monsieur, there must undoubtedly be some mistake.'
+
+`If there is a mistake, Monsieur Morrel,' the commissioner replied, `you
+may be sure that it will soon be put right. In the meanwhile, I have a
+warrant here; and though I do it with regret, I must fulfil my duty.
+Which of you gentlemen is Edmond Dant\`es?'
+
+All eyes turned towards the young man who, preserving his dignity
+despite his astonishment, stepped forward and said: `I am, Monsieur.
+What do you want with me?'
+
+`Edmond Dant\`es,' the commissioner said, `I arrest you in the name of the
+law.'
+
+`Arrest me!' Edmond said, paling slightly. `Why are you arresting me?'
+
+`I have no idea of that, Monsieur, but you will be informed of it in
+your first interrogation.'
+
+M. Morrel realized that there was no sense in trying to argue in the
+circumstances: a commissioner wearing his sash is no longer a man but a
+statue of the law, cold, deaf and dumb. But the old man rushed over to
+the officer: it is impossible, in some situations, to reason with the
+heart of a parent.
+
+He begged and prayed: prayers and tears were ineffectual, but his
+despair was so great that the commissioner was moved by it.
+
+`My dear sir,' he said, `calm yourself. Perhaps your son has forgotten
+some formality to do with the Customs or the health authorities; and, as
+likely as not, when he has given them the information they require, he
+will be released.'
+
+`Well, I never! What does this mean?' Caderousse asked Danglars
+quizzically, while Danglars feigned surprise.
+
+`How can I tell?' he replied. `Like you, I can see what is happening,
+but I am at a loss to understand it.'
+
+Caderousse looked around for Fernand, but he had vanished. At that
+moment, the whole of the previous evening's events flashed before his
+eyes with terrifying clarity. It was as though the catastrophe had
+lifted the veil that drunkenness had cast over his memory of the day
+before.
+
+`Oh! Oh!' he exclaimed hoarsely. `Can this be a consequence of the joke
+you were speaking about yesterday, Danglars? If that is the case,
+damnation take the perpetrator, for it is a cruel one.'
+
+`Nothing of the sort!' muttered Danglars. `Far from it: you know very
+well that I tore up the paper.'
+
+`That you did not,' said Caderousse. `You merely threw it into a
+corner.'
+
+`Hold your tongue. You were drunk, you saw nothing.'
+
+`Where is Fernand?' Caderousse asked.
+
+`How do I know?' replied Danglars. `About his business, no doubt. But
+instead of worrying about that, why don't we go and comfort these poor
+people.'
+
+While this conversation was taking place, Dant\`es had in effect been
+shaking the hands of all his friends, with a smile to each, and
+relinquished himself into captivity, saying: `Stay calm. The mistake
+will doubtless be explained and it is quite probable that I shall not
+even go as far as the prison.'
+
+`Certainly not, I guarantee it,' Danglars said, coming across at that
+moment to the group, as he had indicated.
+
+Dant\`es went down the stairs, following the commissioner of police, with
+the soldiers surrounding him. A carriage, its door wide open, was
+waiting outside. He got in. Two soldiers and the commissioner got up
+behind him, the door closed and the carriage set out on the road back to
+Marseille.
+
+`Farewell, Dant\`es! Farewell, Edmond!' cried Merc\'ed\`es, leaning across the
+balustrade.
+
+The prisoner heard this last cry, wrung like a sob from his fianc\'ee's
+tormented heart. He leant out of the carriage window and called:
+`Goodbye, Merc\'ed\`es!' as he disappeared round one corner of the Fort
+Saint-Nicholas.
+
+`Wait for me here,' said the shipowner. `I shall take the first carriage
+I can find, hurry to Marseille and bring the news back to you.'
+
+`Yes!' everyone cried. `Go on, and come quickly back.'
+
+After this double departure there was a dreadful moment of stunned
+silence among all who remained behind. For a time, the old man and
+Merc\'ed\`es stayed apart, each immured in grief. But at length their eyes
+met. Each recognized the other as a victim stricken by the same blow and
+they fell into each other's arms.
+
+Meanwhile Fernand returned, poured himself a glass of water, drank it
+and sat down on a chair. By chance, this happened to be next to the
+chair into which Merc\'ed\`es sank when she parted from the old man's
+embrace. Fernand instinctively moved his own chair away.
+
+`He's the one,' Caderousse told Danglars, not having taken his eyes off
+the Catalan.
+
+`I doubt it,' Danglars replied. `He was not clever enough. In any case,
+let whoever is responsible take the blame.'
+
+`You are forgetting the person who advised him.'
+
+`Pah! If one were to be held to account for every remark one lets fall
+\ldots'
+
+`Yes, when it falls point downwards.'
+
+Everyone else, meanwhile, had been discussing every angle of Dant\`es'
+arrest.
+
+`And you, Danglars?' someone asked. `What do you think about what has
+happened?'
+
+`My view is that he must have brought back some packets of prohibited
+goods.'
+
+`But if that was the case, you should know about it, Danglars, since you
+were the ship's supercargo.'
+
+`That may be so, but the supercargo doesn't know about any goods unless
+they are declared to him. I know that we were carrying cotton, that's
+all, and that we took the cargo on at Alexandria, from Monsieur Pastret,
+and at Smyrna, from Monsieur Pascal. Don't expect me to know anything
+more than that.'
+
+`Yes, I remember now,' Dant\`es' poor father muttered, clutching at this
+straw. `He told me yesterday that he had brought me a cask of coffee and
+one of tobacco.'
+
+`You see,' said Danglars. `That's it: while we were away, the Customs
+must have gone on board the \emph{Pharaon} and discovered the
+contraband.'
+
+Merc\'ed\`es did not believe any of this; and, having up to then contained
+her distress, she burst into a fit of sobbing.
+
+`Come, come! Don't lose hope,' Old Dant\`es said, though without really
+knowing what he was saying.
+
+`Hope!' Danglars repeated.
+
+`Hope,' Fernand tried to mutter. But the word stuck in his throat, his
+lips trembled and no sound emerged from them.
+
+`Gentlemen!' cried one of the guests, who had been keeping watch from
+the balcony. `Gentlemen, a carriage! Ah, it's Monsieur Morrel! Come now,
+he must surely be bringing good news.'
+
+Merc\'ed\`es and the old man ran out to greet the shipowner, who met them at
+the door. M. Morrel's face was pale.
+
+`Well?' they all cried at once.
+
+`Well, my friends,' the shipowner replied, shaking his head. `The matter
+is more serious than we thought.'
+
+`But, Monsieur!' cried Merc\'ed\`es. `He is innocent!'
+
+`I believe him to be so,' M. Morrel replied, `but he is accused \ldots'
+
+`What is he accused of?' Old Dant\`es asked.
+
+`Of being an agent of Bonaparte.'
+
+Those readers who lived through the period in which this story takes
+place will recall what a dreadful accusation it was that M. Morrel had
+just pronounced in those days.
+
+Merc\'ed\`es gave a cry, and the old man sank into a chair.
+
+`So,' Caderousse muttered. `You lied to me, Danglars: the trick was
+played after all. But I do not intend to let this old man and this young
+woman die of grief, and I shall tell them everything.'
+
+`Hold your tongue, wretch!' Danglars exclaimed, grasping Caderousse's
+hand. `Otherwise I can't answer for what may happen to you. How do you
+know that Dant\`es is not in fact guilty? The ship did call in at the
+island of Elba, he landed there and stayed a day in Porto Ferrajo. If he
+has been found with some compromising letter on his person, anyone who
+takes his part will look like an accomplice.'
+
+Caderousse was rapidly informed of the full strength of this argument by
+the dictates of self-interest, and he looked at Danglars with an
+expression deadened by fear and grief. Having just taken one step
+forward, he proceeded to take two back.
+
+`So, let's wait and see,' he muttered.
+
+`Yes, we'll wait,' Danglars answered. `If he is innocent, he will be
+freed; if he is guilty, there is no sense in compromising oneself for
+the sake of a conspirator.'
+
+`Let's go, then. I can't stay here any longer.'
+
+`Yes, come on,' said Danglars, delighted at having someone to accompany
+him out of the room. `Come, we shall let them extricate themselves as
+best they may.'
+
+They left; and Fernand, resuming his former role in support of the young
+woman, took Merc\'ed\`es' hand and led her back to Les Catalans. For their
+part, Dant\`es' friends took the old man, in a state of near-collapse,
+back to the All\'ees de Meilhan.
+
+The news that Dant\`es had just been arrested as a Bonapartist agent soon
+spread through Marseille.
+
+`Would you have believed it, my dear Danglars?' M. Morrel said, catching
+up with his supercargo and Caderousse (for he was also heading for town
+as fast as he could, to have some first-hand news of Edmond from the
+crown prosecutor, M. de Villefort, who was a slight acquaintance of
+his). `Would you believe it?'
+
+`Well, now, Monsieur!' Danglars replied. `I told you that Dant\`es put
+into Elba, for no apparent reason, and that this call seemed suspicious
+to me.'
+
+`But did you tell anyone else of your suspicions?'
+
+`I was careful not to do any such thing,' Danglars assured him, lowering
+his voice. `You know very well that, on account of your uncle, Monsieur
+Policar Morrel, who served under you-know-whom and makes no secret of
+his feelings, you are suspected of hankering after the old regime. I
+would have been afraid I might harm Dant\`es and also yourself. There are
+some things that a subordinate has a duty to tell the owner, and to keep
+well hidden from anyone else.'
+
+`Well done, Danglars, well done. You're a good fellow. I had already
+thought about you, in the event of poor Dant\`es becoming captain of the
+\emph{Pharaon}.'
+
+`How so, Monsieur?'
+
+`Well, you see, I did ask Dant\`es what he thought of you and if he would
+have any objection to my leaving you in your post; I don't know why, but
+I thought I had noticed some coldness between you.'
+
+`And what was his reply?'
+
+`He told me that he did indeed feel that he had some grievance against
+you, though in circumstances that he would not explain; but that anyone
+who enjoyed the shipowner's confidence also had his own.'
+
+`Hypocrite!' muttered Danglars.
+
+`Poor Dant\`es,' said Caderousse. `He was an excellent fellow, and that's
+a fact.'
+
+`Yes, but meanwhile,' M. Morrel said, `the \emph{Pharaon} has no
+captain.'
+
+`Oh, we must hope,' said Danglars, `that, since we cannot sail again for
+three months, Dant\`es will be freed before then.'
+
+`Of course, but in the meanwhile?'
+
+`Well, Monsieur Morrel, in the meantime, I am here. As you know, I can
+manage a ship as well as the first ocean-going captain who may come
+along. It may even benefit you to use me, because when Edmond comes out
+of prison you will not have to dismiss anybody: he will quite simply
+resume his post and I mine.'
+
+`Thank you, Danglars,' said the shipowner. `That arranges everything. I
+therefore authorize you to take command and supervise the unloading:
+whatever disaster may befall an individual, business must not suffer.'
+
+`Have no fear, Monsieur. But can we at least go and visit him? Poor
+Edmond!'
+
+`I'll let you know as soon as I can, Danglars. I shall try to speak to
+Monsieur de Villefort and intercede with him on the prisoner's behalf. I
+know that he is a rabid Royalist; but, dammit, though he's a Royalist
+and the crown prosecutor, he is also a man and not, I believe, a wicked
+one.'
+
+`No,' said Danglars. `Though I have heard it said that he is ambitious,
+which is much the same.'
+
+`Well, we shall find out,' M. Morrel said, with a sigh. `Go on board and
+I'll join you there.'
+
+He left the two friends, to make his way towards the law courts.
+
+`You see how things are turning out?' Danglars said to Caderousse. `Do
+you still want to go and speak for Dant\`es?'
+
+`No, indeed not. But it is dreadful that a trick should have such dire
+consequences.'
+
+`Pah! Who played the trick? Not you or I. You know very well that I
+threw the paper into a corner. I even thought I had torn it up.'
+
+`No, no,' Caderousse insisted. `As far as that goes, I am certain. I can
+see it in the corner of the arbour, screwed up in a ball -- and I wish
+it were still in the place where I saw it.'
+
+`What do you expect? Fernand must have picked it up, copied it or had it
+copied; perhaps he did not even take that trouble; which means \ldots{}
+Good Lord! Suppose he sent my own letter! Luckily I disguised my
+handwriting.'
+
+`But did you know that Dant\`es was a conspirator?'
+
+`Did I know? I knew nothing at all. As I told you, I was making a joke,
+that's all. It seems that, like Harlequin, I spoke a true word in jest.'
+
+`No matter,' said Caderousse. `I'd give a great deal for this not to
+have happened, or at least not to be involved in it. You wait and see,
+Danglars! It will bring us misfortune!'
+
+`If it brings misfortune, it will be to the guilty party, and the real
+responsibility lies with Fernand, not with us. What ill do you suppose
+could befall us? All we have to do is to keep quiet and not breathe a
+word of this, and the storm will blow over without striking us.'
+
+`Amen!' Caderousse said, waving goodbye to Danglars and making his way
+towards the All\'ees de Meilhan, shaking his head and muttering to
+himself, as people are inclined to do when they have a good deal on
+their minds.
+
+`Good!' Danglars exclaimed. `Everything is working out as I expected. I
+am now captain \emph{pro tem} and, if only that idiot Caderousse can
+keep his mouth shut, captain for good. So, the only other eventuality is
+that the Law may release Dant\`es? Ah, well,' he added, with a smile, `the
+Law is the Law, and I am happy to put myself in her hands.'
+
+Upon which, he leapt into a boat and gave the boatman the order to row
+him out to the \emph{Pharaon} where the shipowner, as you will recall,
+had arranged to meet him.
+
 \backmatter
+
+\setcounter{chapter}{0}
+\newcounter{notes}
+
+\cleardoublepage
+
+\begin{center}
+\bigskip
+\LARGE Notes
+\end{center}
+\addcontentsline{toc}{book}{Notes}%
+\markboth{\footnotesize NOTES}{\footnotesize NOTES}
+\thispagestyle{empty}
+
+\chapternotes{Marseille -- Arrival}
+
+\mynote{\emph{Fort Saint-Jean}: The entrance to the
+old harbour at Marseille is guarded by two forts, the Fort Saint-Jean on
+the north and the Fort Saint-Nicholas on the south. The Pharo lies west
+of the Fort Saint-Nicholas, and Les Catalans south-west. In the standard
+text, some place-names are misspelt (`Morgion' for `Morgiou', etc.).
+These have been corrected, to accord with Schopp (1993).
+
+The new harbour was under construction, north of Fort Saint-Jean, at the
+time when the novel was published. The city rises away from the old
+harbour, or Vieux Port, forming -- in the words of \emph{Murray's
+Handbook for Travellers in France} (London, 1847) `a basin or
+amphitheatre, terminating only with the encircling chain of hills. From
+this disposition of the ground, the port becomes the sewer of the city
+-- the receptacle of all its filth, stagnating in a tideless sea and
+under a burning sun \ldots{} The stench emanating from it at times is
+consequently intolerable, except for natives \ldots'
+
+On the whole, Marseille was not considered attractive for tourists, and
+Dumas' novel did a good deal to enhance its image.
+}
+
+\mynote{\emph{supercargo}: On a merchant ship, the
+officer in charge of the cargo and of finances.
+}
+
+\mynote{\emph{for Marshal Bertrand}: Marshal Bertrand
+(1773--1844) was one of Napoleon's marshals. He followed the emperor to
+exile on Elba.
+}
+
+\mynote{the Italian proverb: chi ha compagno,
+ha padrone\emph{: `Whoever has a partner, has a master'.}
+}
+
+\chapternotes{Father and Son}
+
+\mynote{\emph{a hundred louis}: All sums of money have
+been left as in the original text. The \emph{louis} was a gold coin
+worth 24 francs: the franc had become the standard unit of currency
+after 1795, divided into 100 \emph{centimes} (or 10 \emph{d\'ecimes}).
+However, a number of denominations continued in circulation, including
+the \emph{louis}, the \emph{livre} (equal to the franc), the \emph{\'ecu}
+and others.
+
+Equivalents are hard to assess. The exchange rate, in the first half of
+the nineteenth century, was 25 francs to the pound sterling (so one
+\emph{louis} was worth just under a pound). The fare by mail coach from
+Paris to Marseille, via Lyon, was around 145 francs, or nearly 6 pounds
+(though, as we see in Chapter {\small CVI}, Albert manages
+to do it for 114 francs, by using river transport for part of the
+journey). This may sound like a bargain to travellers on French
+Railways, but one must remember (as Coward points out in his edition of
+the 1846 translation) that a cur\'e's stipend was only 1,000 francs (£40)
+a year.
+}
+
+\stepcounter{notes} % No Chapter III notes
+
+\chapternotes{The Plot}
+
+\mynote{\emph{The Flood \ldots{} water drink}: A
+couplet from Louis-Philippe de S\'egur's \emph{Chanson morale}.
+}
+
+\mynote{\emph{crown prosecutor}: There is no English
+equivalent to the office of \emph{procureur du roi}, who was, broadly
+speaking, the officer responsible for investigating crimes and
+instituting criminal proceedings on behalf of the state. In the early
+nineteenth century, the \emph{procureur} in Marseille was assisted by
+five deputies, or \emph{substituts}.
+}
+
+\mynote{\emph{Murat}: Joachim Murat (1767--1815), one
+of Napoleon's marshals.
+}
+
+\chapternotes{The Betrothal}
+
+\mynote{\emph{commissioner of police}: The
+\emph{commissaire de police} was responsible for policing in a given
+administrative district.
+}
+
 \end{document}
-
-

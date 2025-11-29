@@ -7,6 +7,7 @@ UNICODE_LATEX = {
     # punctuation and ligatures
     '…': r'\ldots',
     '“‘': r'``\hspace{0pt}`',    '’”': r"'\hspace{0pt}''",
+    '‘“': r'`\hspace{0pt}``',    '”’': r"''\hspace{0pt}'",
     '“': '``',      '”': "''",
     '‘': '`',       '’': "'",
     '–': '--',      '—': '---',
