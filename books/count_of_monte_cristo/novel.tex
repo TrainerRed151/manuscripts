@@ -1,0 +1,2305 @@
+%Copyright © 2025 Brian Pomerantz. All Rights Reserved.
+
+\documentclass[10pt,twoside]{memoir}
+
+%------------------------------------------------
+% Page layout for half-letter (5.5x8.5)
+%------------------------------------------------
+\setstocksize{8.5in}{5.5in}             % Final trimmed page size
+\settrimmedsize{8.5in}{5.5in}{*}        % Trimmed size
+\settypeblocksize{7in}{4.25in}{*}       % Text area (height x width)
+\setbinding{3mm}                        % Additional gutter space for spine
+\setlrmargins{*}{*}{1.2}                % Inner/outer margin ratio
+\setulmargins{*}{*}{1.2}                % Top/bottom margin ratio
+\setheaderspaces{*}{*}{1.0}
+\checkandfixthelayout
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0em}
+\setlength{\voffset}{0.1in}
+
+%------------------------------------------------
+% Fonts
+%------------------------------------------------
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\linespread{1.1}
+
+%------------------------------------------------
+% Formatting
+%------------------------------------------------
+\pagestyle{myheadings}
+
+\aliaspagestyle{part}{empty}
+\aliaspagestyle{chapter}{empty}
+
+\newcommand{\mychapter}[1]{%
+  \refstepcounter{chapter}%
+  \markboth{\footnotesize THE COUNT OF MONTE CRISTO}{\footnotesize \MakeUppercase{#1}}
+  \addcontentsline{toc}{chapter}{\makebox[2em][r]{\thechapter}\hspace*{1em}\MakeUppercase{#1}}%
+  \begin{center}%
+  \large \thechapter\par%
+  %\vspace{0.5em}%
+  \large \MakeUppercase{#1}\par%
+  \end{center}
+}
+
+\newcommand{\mychapterstar}[1]{%
+  \chapter*{\LARGE #1}%
+  \markboth{\footnotesize \MakeUppercase{#1}}{\footnotesize \MakeUppercase{#1}}%
+  \addcontentsline{toc}{chapter}{#1}
+}
+
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+
+\renewcommand{\thechapter}{\small \Roman{chapter}}
+
+%\cftsetindents{chapter}{3em}{2.5em}
+
+\setlength{\cftbeforepartskip}{1em}  % space before chapters
+\setlength{\cftbeforechapterskip}{0.5em}  % space before chapters
+
+%------------------------------------------------
+% Front matter
+%------------------------------------------------
+\title{The Count of Monte Cristo}
+\author{Alexandre Dumas \\ \\ \small \emph{Translated and with Introduction and Notes by} \\ \small Robin Buss}
+\date{}
+
+\begin{document}
+\frontmatter
+
+\thispagestyle{empty}
+\begin{center}
+{\small THE COUNT OF MONTE CRISTO}
+\end{center}
+{\small
+Alexandre Dumas was born in 1802 at Villers-Cotter\^ets. His father, the
+illegitimate son of a marquis, was a general in the Revolutionary
+armies, but died when Dumas was only four. He was brought up in
+straitened circumstances and received very little education. He joined
+the household of the future king, Louis-Philippe, and began reading
+voraciously. Later he entered the \emph{c\'enacle} of Charles Nodier and
+started writing. In 1829 the production of his play, \emph{Henri III et
+sa cour}, heralded twenty years of successful playwriting. In 1839 he
+turned his attention to writing historical novels, often using
+collaborators such as Auguste Maquet to suggest plots or historical
+background. His most successful novels are \emph{The Count of Monte
+Cristo}, which appeared during 1844--5, and \emph{The Three Musketeers},
+published in 1844. Other novels deal with the wars of religion and the
+Revolution. Dumas wrote many of these for the newspapers, often in daily
+instalments, marshalling his formidable energies to produce ever more in
+order to pay off his debts. In addition, he wrote travel books,
+children's stories and his \emph{M\'emoires} which describe most amusingly
+his early life, his entry into Parisian literary circles and the 1830
+Revolution. He died in 1870.
+
+\bigskip
+
+\noindent Robin Buss is a writer and translator who contributes regularly to
+\emph{The Times Educational Supplement}, \emph{The Times Literary
+Supplement} and other papers. He studied at the University of Paris,
+where he took a degree and a doctorate in French literature. He is
+part-author of the article `French Literature' in \emph{Encyclopaedia
+Britannica} and has published critical studies of works by Vigny and
+Cocteau, and three books on European cinema, \emph{The French through
+Their Films} (1988), \emph{Italian Films} (1989) and \emph{French Film
+Noir} (1994). He is also part-author of a biography, in French, of King
+Edward VII (with Jean-Pierre Navailles, published by Payot, Paris,
+1999). He has translated a number of other volumes for Penguin,
+including Jean Paul Sartre's \emph{Modern Times}, Zola's
+\emph{L'Assommoir} and \emph{Au Bonheur des Dames}, and Albert Camus's
+\emph{The Plague}.
+}
+
+\cleardoublepage
+
+\maketitle
+\thispagestyle{empty}
+\clearpage
+
+% Copyright page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\tiny
+First published 1844--5\\
+This translation first published 1996\\
+Reissued with new Chronology and Further Reading 2003
+\vspace{1\baselineskip}
+
+Copyright \textcopyright\ Robin Buss, 1996, 2003\\
+All rights reserved\\
+\vspace{1\baselineskip}
+
+The moral right of the translator has been asserted\\
+\vspace{1\baselineskip}
+
+This edition published by Brian Pomerantz, 2025\\
+\vspace{1\baselineskip}
+
+Printed in the United States of America.
+\end{center}
+\vspace*{\fill}
+\clearpage
+
+
+% Table of contents
+\tableofcontents*
+\cleardoublepage
+%\phantom{foo}
+%\thispagestyle{empty}
+%\cleardoublepage
+
+\mychapterstar{Chronology}
+
+\begin{description}
+\item[\textbf{1802}] Alexandre Dumas is born at Villers-Cotter\^ets, the third
+child of Thomas-Alexandre Dumas. His father, himself the illegitimate
+son of a marquis and a slave girl of San Domingo, Marie-Cessette Dumas,
+had had a remarkable career as a general in the Republican, then in the
+Napoleonic Army.
+
+\item[\textbf{1806}] General Dumas dies. Alexandre and his mother, Elisabeth
+Labouret, are left virtually penniless.
+
+\item[\textbf{1822}] Dumas takes a post as a clerk, then in 1823 is granted a
+sinecure on the staff of the Duke of Orl\'eans. He meets the actor Talma
+and starts to mix in artistic and literary circles, writing sketches for
+the popular theatre.
+
+\item[\textbf{1824}] Dumas' son, Alexandre, future author of \emph{La Dame aux
+cam\'elias}, is born as the result of an affair with a seamstress,
+Catherine Lebay.
+
+\item[\textbf{1829}] Dumas' historical drama, \emph{Henri III et sa cour}, is
+produced at the Com\'edie-Fran\c{c}aise. It is an immediate success, marking
+Dumas out as a leading figure in the Romantic movement.
+
+\item[\textbf{1830}] Victor Hugo's drama \emph{Hernani} becomes the focus of
+the struggle between the Romantics and the traditionalists in
+literature. In July, the Bourbon monarchy is overthrown and replaced by
+a new regime under the Orl\'eanist King Louis-Philippe. Dumas actively
+supports the insurrection.
+
+\item[\textbf{1831}] Dumas' melodrama \emph{Antony}, with its archetypal
+Romantic hero, triumphs at the Th\'e\^atre de la Porte Saint-Martin.
+
+\item[\textbf{1832}] Dumas makes a journey to Switzerland which will form the
+basis of his first travel book, published the following year.
+
+\item[\textbf{1835}] Dumas travels to Naples with Ida Ferrier (whom he will
+later marry), has a passionate affair in Naples with Caroline Ungher and
+falls in love with Italy and the Mediterranean.
+
+\item[\textbf{1836}] Triumph of Dumas' play \emph{Kean}, based on the
+personality of the English actor whom Dumas had seen performing in
+Shakespeare in 1828.
+
+\item[\textbf{1839}] \emph{Mademoiselle de Belle-Isle}. Dumas' greatest success
+in the theatre.
+
+\item[\textbf{1840}] Dumas marries Ida Ferrier. He travels down the Rhine with
+G\'erard de Nerval and they collaborate on the drama \emph{L\'eo Burckart}.
+Nerval introduces Dumas to Auguste Maquet who will become his
+collaborator on many of his subsequent works.
+
+\item[\textbf{1841}] Spends a year in Florence.
+
+\item[\textbf{1844}] The year of Dumas' two greatest novels: \emph{The Three
+Musketeers} starts to appear in serial form in March and the first
+episodes of \emph{The Count of Monte Cristo} follow in August. Dumas
+starts to build his Ch\^ateau de Monte-Cristo at St-Germain-en-Laye. He
+separates from Ida Ferrier.
+
+\item[\textbf{1845}] \emph{Twenty Years After}, the first sequel to \emph{The
+Three Musketeers}, appears at the beginning of the year. In February,
+Dumas wins a libel action against the author of a book accusing him of
+plagiarism. Publishes \emph{La Reine Margot}.
+
+\item[\textbf{1846}] Dumas travels in Spain and North Africa. Publishes
+\emph{La Dame de Monsoreau}, \emph{Les Deux Diane} and \emph{Joseph
+Balsamo}.
+
+\item[\textbf{1847}] Dumas' theatre, the Th\'e\^atre Historique, opens. It will
+show several adaptations of his novels, including \emph{The Three
+Musketeers} and \emph{La Reine Margot}. Serialization of \emph{The
+Vicomte de Bragelonne}, the final episode of the \emph{The Three
+Musketeers}.
+
+\item[\textbf{1848}] A revolution in February deposes Louis-Philippe and brings
+in the Second Republic. Dumas stands unsuccessfully for Parliament and
+supports Louis-Napol\'eon, nephew of Napoleon I, who becomes President of
+the Republic.
+
+\item[\textbf{1849}] Dumas publishes \emph{The Queen's Necklace}.
+
+\item[\textbf{1850}] Dumas is declared bankrupt and has to sell the Ch\^ateau de
+Monte-Cristo and the Th\'e\^atre Historique. Publishes \emph{The Black
+Tulip}.
+
+\item[\textbf{1851}] In December, Louis-Napol\'eon seizes power in a coup d'\'etat,
+effectively abolishing the Republic. A year later, the Second Empire
+will be proclaimed. Victor Hugo goes into exile in Belgium where Dumas,
+partly to escape his creditors, joins him.
+
+\item[\textbf{1852}] Publishes his memoirs.
+
+\item[\textbf{1853}] In November, returns to Paris and founds a newspaper,
+\emph{Le Mousquetaire}. Publishes \emph{Ange Pitou}.
+
+\item[\textbf{1858}] Founds the literary weekly, \emph{Le Monte-Cristo}. Sets
+out on a nine-month journey to Russia.
+
+\item[\textbf{1860}] Meets Garibaldi and actively supports the Italian struggle
+against Austria. Founds \emph{L'Independente}, a periodical in Italian
+and French. Garibaldi is godfather to Dumas' daughter by Emilie Cordier.
+
+\item[\textbf{1861--1870}] Dumas continues to travel throughout Europe and to
+write, though his output is somewhat reduced. None the less in the final
+decade of his life, he published some six plays, thirteen novels,
+several shorter fictions, a historical work on the Bourbons in Naples
+and a good deal of journalism. He had a last love affair, with an
+American, Adah Menken, and indulged his lifelong passions for drama,
+travel and cookery.
+
+\item[\textbf{1870}] Alexandre Dumas dies on 5 December in Dieppe.
+\end{description}
+
+\mychapterstar{Introduction}
+
+`Ah, a children's novel,' a Russian film-maker remarked when I told her
+that I was translating \emph{The Count of Monte Cristo}. The comment was
+not intended to be disparaging, merely descriptive; and many people, in
+different cultures, would tend to agree with the categorization. Most
+will derive their idea of the novel, not from having read it, but
+because a kind of abstract of the storyline exists as part of the common
+culture: innocent man imprisoned, meets fellow-prisoner who directs him
+to a buried fortune, escapes and plots revenge. It has been adapted for
+film, television and the theatre, as well as being translated, abridged
+and imitated in print. It has supplied material for cartoons and comedy:
+the Irish comedian Dave Allen used to do a series of sketches around the
+theme of a young man (Dant\`es) breaking through a dungeon wall and
+encountering an old, bearded prisoner (Abb\'e Faria). Some events in the
+story are so well-known that they exist apart from the novel, like
+Robinson Crusoe's discovery of Man Friday's footprint, or incidents and
+characters from \emph{Treasure Island} and \emph{Frankenstein}.
+\emph{The Count of Monte Cristo} is one of the great popular novels of
+all time and, like other popular novels, it has suffered the fate of
+being treated as not fully `adult' fiction; like children's fiction, it
+seems to inhabit a realm outside its creator's biography and the period
+when it was written.
+
+On the other hand, there are not many children's books, even in our own
+time, that involve a female serial poisoner, two cases of infanticide, a
+stabbing and three suicides; an extended scene of torture and execution;
+drug-induced sexual fantasies, illegitimacy, transvestism and
+lesbianism; a display of the author's classical learning, and his
+knowledge of modern European history, the customs and diet of the
+Italians, the effects of hashish, and so on; the length would, in any
+case, immediately disqualify it from inclusion in any modern series of
+books for children. Most important of all, perhaps, is the fact that the
+author himself never thought of this as `a children's novel'. Yet
+already in the earliest translations into English, with their omission
+or subtle alteration of material that might be considered indelicate by
+Victorian readers, and of some passages (for example, references to
+classical literature) that might be thought to hold up the story, one
+can see the start of a process of transformation, from `novel' to `genre
+novel' -- which means, ultimately, almost any kind of genre novel:
+`adventure', `romance', `thriller' and, if you like, `children's novel'.
+This is the usual fate of books that fail to meet the criteria for
+serious, `literary' fiction.
+
+Dumas himself must bear some of the responsibility. During his most
+productive decade, from 1841 to 1850, he wrote forty-one novels,
+twenty-three plays, seven historical works and half a dozen travel
+books. The nineteenth century was an age of mass production, which is
+precisely why Art felt the need to distinguish itself by its
+individuality and craftsmanship: `Alexandre Dumas and Co., novel
+factory', was the contemptuous title given to one critical pamphlet,
+published at the same time as this novel, in 1845. Moreover it was known
+that Dumas wrote for money, at so much a line, and that he used at least
+one collaborator, Auguste Maquet, who would make chapter outlines for
+him and do research. There was a vast difference between this industrial
+labour and the monastic devotion to the cause of art that kept Gustave
+Flaubert at his desk for seven hours a day as he wrote and rewrote
+\emph{Madame Bovary} (1857). In the history of the novel, Dumas and
+Flaubert stand near the head of divergent streams.
+
+Alexandre Dumas was born on 24 July 1802; or, rather, since the
+Republican Calendar was still in force, on 5th Thermidor, Year x, in the
+little town of Villers-Cotter\^ets, near Soissons. His father was a
+general in the revolutionary armies, himself the illegitimate son of a
+marquis, Antoine-Alexandre Davy de la Paillerie, and a black slave from
+the island of Santo Domingo, Marie Dumas. In 1806, General Dumas died,
+leaving his family virtually without resources. The child had little
+education, enough however to allow him to read \emph{Robinson Crusoe}
+and \emph{The Arabian Nights}, and to cultivate his handwriting. In
+1823, thanks to the second of these, he found employment in Paris,
+copying documents for Louis-Philippe, Duke of Orl\'eans.
+
+The 1820s were a marvellous time for an aspiring young writer in Paris.
+The two rival literary ideologies, of Classicism and Romanticism, were
+engaged in a mock-heroic combat for the soul of French literature.
+Classicism stood for universal themes, refinement, purity of language,
+clear division of literary genres and (despite its debt to the
+literature of the classical world) the peculiarly French ethos of the
+dramatist Racine. Romanticism meant energy, modern subject-matter,
+mixing genres and openness to foreign influences, particularly that of
+Shakespeare, the Romantic dramatist \emph{par excellence}. It was in the
+theatre that the confrontation would chiefly take place.
+
+Racine had based his plays on stories from classical Greece or on
+biblical history, both of which offered `universal' events and
+characters. Shakespeare, like the German playwright Schiller, had dealt
+with subjects from modern history, which were national and particular
+rather than universal. In France, especially, the period that followed
+the great upheavals of the Revolution, the Empire and the Restoration
+was one which had an urgent need to make sense of the past.
+Shakespeare's history plays -- and, still more, the historical novels of
+Walter Scott -- were models of how this could be done, drawing on the
+imagination as well as on scholarship. In 1828, Dumas, who had already
+tried his hand at a couple of plays and some short stories, submitted a
+historical drama to the Com\'edie Fran\c{c}aise entitled \emph{Henri III et sa
+cour}. It was a typically Romantic work, ignoring the `unities' of time,
+place and action, and written in prose, rather than the conventional
+medium of verse. It underwent the usual ritual of a public reading and,
+at its first night on 10 February 1829, scored a triumphant success and
+was warmly applauded by the author's employer, Louis-Philippe. In the
+following year, Louis-Philippe became king, after a liberal revolution
+that was supposed to bring in a constitutional monarchy. Dumas welcomed
+it; so did the former ultra-monarchist, Victor Hugo.
+
+During the next twenty years, Dumas was (with Hugo and Alfred de Vigny)
+the leading dramatist of the new movement -- and, of the three, easily
+the most prolific. Perhaps too much so: overnight, after the first
+performance of \emph{Christine} in 1830, while Dumas was asleep, Hugo
+and Vigny rewrote the play, reducing it to a more manageable size.
+Despite this, Dumas' play \emph{Antony} (1831) is an essential work of
+the Romantic period, as representative as Hugo's \emph{Hernani} or
+Vigny's \emph{Chatterton}, and more successful with its audiences than
+either. But the theatre is the very opposite of a monastic cell or an
+ivory tower. Collaboration is not only the norm, but inevitable,
+feedback from the public is instantaneous, work has to be produced to
+satisfy demand, and there is an immediate relationship between the
+author's output and what comes in through the box office. In the
+theatre, Dumas learned the rudiments of literary production.
+
+On one occasion, Charles-Jean Harel, director of the Od\'eon theatre, is
+supposed to have locked Dumas into a room, away from his mistress, for a
+week, until he had completed the manuscript of \emph{Napol\'eon} (1831).
+The huge growth in the periodical press during the 1820s saw the
+invention of the \emph{feuilleton} -- not in the sense of a regular
+column by one writer, but of a novel published in instalments; Dumas
+claimed to have invented the \emph{roman feuilleton} with \emph{La
+Comtesse de Salisbury}, published in \emph{La Presse} in 1836. By the
+early 1840s he was writing more novels than plays, mainly (but by no
+means exclusively) historical fiction which, as I have already
+mentioned, was one of the most popular genres; it was also taken
+seriously as a means of exploring the past. He did, incidentally, write
+a book for children at this time: \emph{Le Capitaine Pamphile} (1839).
+
+Travel, to which he was addicted, helped to stave off boredom, providing
+the material for travel books, while translation filled in the remaining
+gaps in the working day. Like Balzac, he was a man of huge appetites:
+food, sex, work, sleep, pleasure, leisure, movement, excitement. In
+Italy, he found love, opera, colour and the Mediterranean: he visited
+Naples and Palermo in 1835, stayed a year in Florence in 1841 and
+returned in 1843 for a visit that included Sicily. The following year
+saw the publication of his first great historical novel, \emph{Les Trois
+Mousquetaires/The Three Musketeers}, and on 28 August 1844 \emph{Le
+Journal des D\'ebats} began publication of \emph{The Count of Monte
+Cristo}. It was an immediate success, translated, adapted, pirated
+\ldots{} in short, a popular novel.
+
+\bigskip
+
+\noindent It was also, very clearly, a work of its time. The plot was inspired by
+the true-life story of Fran\c{c}ois Picaud, which Dumas found in Jacques
+Peuchet's \emph{Police d\'evoil\'ee: M\'emoires historiques tir\'es des archives
+de Paris} \ldots{} (1838), a collection of anecdotes from the Parisian
+police archives.\textsuperscript{1}
+
+Briefly, the story is this: Picaud, a young man from the south of
+France, was imprisoned in 1807, having been denounced by a group of
+friends as an English spy, shortly after he had become engaged to a
+young woman called Marguerite. The denunciation was inspired by a caf\'e
+owner, Mathieu Loupian, who was jealous of Picaud's relationship with
+Marguerite.
+
+Picaud was eventually moved to a form of house-arrest in Piedmont and
+shut up in the castle of Fenestrelle, where he acted as servant to a
+rich Italian cleric. When the man died, abandoned by his family, he left
+his money to Picaud, whom he had come to treat as a son, also informing
+him of the whereabouts of a hidden treasure. With the fall of Napoleon
+in 1814, Picaud, now called Joseph Lucher, was released; in the
+following year, after collecting the hidden treasure, he returned to
+Paris.
+
+Here he discovered that Marguerite had married Loupian. Disguising
+himself, and offering a valuable diamond to Allut, the one man in the
+group who had been unwilling to collaborate in the denunciation, he
+learned the identity of his enemies. He then set about eliminating them,
+stabbing the first with a dagger on which were printed the words:
+`Number One', and burning down Loupian's caf\'e. He managed to find
+employment in Loupian's house, disguised as a servant called Prosper.
+However, while this was going on, Allut had fallen out with the merchant
+to whom he had resold the diamond, had murdered him and had been
+imprisoned. On coming out of jail, he started to blackmail Picaud.
+Picaud poisoned another of the conspirators, lured Loupian's son into
+crime and his daughter into prostitution, then finally stabbed Loupian
+himself. But he quarrelled with Allut over the blackmail payments and
+Allut killed him, confessing the whole story on his deathbed in 1828.
+
+It is obvious both how directly Dumas was inspired by Peuchet's account
+of this extraordinary tale, and how radically he transformed it;
+incidentally, he used another chapter of Peuchet's book as the basis for
+the story of Mme de Villefort. One important step in the transformation
+from `true crime' to fiction was to shift the opening of the tale from
+Paris to Marseille, giving the novel its Mediterranean dimension. Though
+most of the action still takes place in Paris (apart from a few
+excursions elsewhere, all the novel between Chapters {\small XXXIX} and {\small CIV} is
+set in Paris), the sea is always present as a figure for escape and
+freedom, while the novel uses the southern origins of its characters as
+a means to evoke that exotic world of the Mediterranean littoral that
+had so fascinated French writers and artists since the 1820s. The
+Mediterranean is the point where the cultures of Europe meet those of
+the Orient, and the region had been in the forefront of people's minds
+since the 1820s, because of the Greek struggle for independence and the
+French conquest of Algeria.
+
+Both of these are directly present in the novel: one of its young
+characters is a soldier who has just returned from Algeria, another sets
+off to fight in the colony. As for Greece, which rebelled against the
+Turks in the 1820s, it inspired much fervour among European Romantics,
+most famously Lord Byron. The story of Ali (1741--1822), Pasha of Janina
+(Jannina) in Albania, plays a direct part in the novel and also takes us
+into the Oriental world that fascinated the French Romantics. `The
+Orient,' Victor Hugo wrote in the preface to his early collection of
+poems, \emph{Les Orientales} (1829), `both as an image and as an idea,
+has become a sort of general preoccupation for people's minds as much as
+for their imaginations, to which the author has perhaps unwittingly
+succumbed. As if of their own accord, Oriental colours have come to
+stamp their mark on all his thoughts and reveries \ldots' -- as they
+also marked the paintings of Ingres and Delacroix. When we meet Hayd\'ee
+in Chapter {\small XLIX}, she is lying on a heap of
+cushions, wearing her native Albanian costume, smoking a hookah and
+framed in a doorway, `like a charming painting'.
+
+Italy was another Mediterranean land that held a powerful appeal for the
+Romantics, and in particular for Dumas. All the components of this
+appeal are in the novel: the classical world (the night visit to the
+Colosseum), the excitement of travel (Chapter {\small XXXIII}, `Roman Bandits'),
+the cruel justice of the Papal states (Chapter {\small XXXV}, `La Mazzolata'), colourful
+spectacle (Chapter {\small XXXVI}, `The Carnival in Rome'), the Christian
+past (Chapter {\small XXXVII}, `The
+Catacombs of Saint Sebastian'). The story of Luigi Vampa could have come
+directly from one of Stendhal's \emph{Italian Chronicles}, the
+description of the Colosseum at night from one of Byron's or Shelley's
+letters. There is also a good deal of wit -- and the fruit of personal
+experience -- in Dumas' portrayal of the modern Romans and the
+day-by-day experience of the Grand Tour. Like all the most skilled
+popular writers, he offers his readers a mixture of the unfamiliar and
+the expected: references to places, people and events that will conjure
+up a whole complex of images and ideas -- we have here the notion of
+Italy as it was perceived in France in the 1840s, through literature and
+art -- combined with those intimate touches that allow readers to
+experience the sensations of being there. Reading Dumas, we know how it
+felt to be swept up in the crowd at the Carnival, to travel in a
+carriage through the Roman streets, to stay in a \emph{pensione}. We can
+easily recognize the proud bandit, the bustling hotelier, the alluring
+woman in the Carnival crowd.
+
+All these are described with as much economy as possible in order to
+avoid holding up the narrative. This is one reason why the popular novel
+tends to reinforce rather than to challenge prejudices -- although, in
+one case, Dumas' novel reversed a prejudice, namely that Marseille was,
+in the words of Murray's \emph{Handbook for Travellers in France}
+(1847), `a busy and flourishing city \ldots{} {[}but one that{]} has few
+fine public buildings or sights for strangers'. \emph{The Count of Monte
+Cristo}, on the contrary, with its intimate topography of the area
+around the old port and its dramatization of Marseille as the focus of
+mercantile activity, the meeting-place of Mediterranean cultures and the
+gateway to the Arab Maghreb, is a good deal more flattering than
+Murray's \emph{Handbook}. Dumas was allegedly thanked by a Marseillais
+cab-driver for promoting the city.
+
+Apart from this novel depiction of France's major sea-port, however,
+Dumas offers his readers a Rome, and an Orient, that are very much what
+they would expect: the first colourful, tuneful, proud and cruel, the
+second decadent and opulent. But he adds those little details that
+compel belief in what he is describing: the precise information about
+Carnival etiquette, the street-by-street itinerary of a drive round the
+walls of Rome, the horrifying description of a Roman execution, sketches
+of character or scenery that he has culled from his own memories of
+staying at Signor Pastrini's hotel when he visited Rome in 1835. His
+passages on sailing ships spare us none of the technicalities of sails
+and masts; his descriptions of the effects of opium convince us that he
+had experienced them. And, in much the same way, he adds touches of
+erudition: a quotation from Horace, a reference to \emph{Hamlet} -- all
+of which are meant to reassure us that we are in reliable hands. At
+times he even allows himself the luxury of a longer purple passage
+(perhaps a sunset over the Mediterranean) to show that he can do that,
+too.
+
+All this helps to justify his claim that he has transformed Peuchet's
+material into something infinitely more valuable. Peuchet's account of
+the Picaud case, he wrote, was `simply ridiculous \ldots{} {[}but{]}
+inside this oyster, there was a pearl. A rough, shapeless pearl, of no
+value, waiting for its jeweller.' And, of course, the essential
+transformation that the jeweller makes to Peuchet's story lies in the
+character of the Count.
+
+To begin with, we have Edmond Dant\`es, a man who could well be first
+cousin to the shoemaker, Fran\c{c}ois Picaud. Betrayed by a jealous rival
+and an ambitious colleague, sent to the fortress prison of If by a
+magistrate who cannot afford to let the facts come out, Dant\`es goes
+through a kind of burial and resurrection. Educated by Abb\'e Faria and
+possessor of a limitless fortune, he can re-emerge into the world, not
+as the cobbler Picaud, content to stab or poison those responsible for
+his misfortune, but as an instrument of divine justice. Dumas' first,
+vital departure from Peuchet is to make Monte Cristo only indirectly the
+avenger: his `victims' are all, in reality, destroyed by their own past
+misdeeds which Monte Cristo uncovers.
+
+As the man who brings the truth to light and uses the discovery to
+punish the wrongdoer, Monte Cristo is the forerunner of the detective,
+that central figure in modern popular fiction. In fact, there is more
+than one reference in the novel to deductive methods that resemble those
+pioneered by Edgar Allan Poe (`A Manuscript Found in a Bottle', `The
+Gold Bug', `The Murders in the Rue Morgue') -- for example, in the way
+in which Abb\'e Faria deciphers the will showing where the treasure was
+hidden, Dant\`es' own analysis of where exactly it is concealed on the
+island and, earlier, Faria's explanation of Dant\`es' imprisonment. Note
+that, like the intellectual exercises of Monte Cristo's opium-taking
+successor later in the century, Sherlock
+Holmes,\textsuperscript{2} these deductions at
+first amaze those who have not been able to follow the logic behind them
+or who do not have the expertise to know, for example, when something
+has been written with the left hand by a right-handed person. But, of
+course, Faria is not really a Holmesian detective: the stereotype in
+Dumas' mind is that of the eighteenth-century \emph{philosophe}, a
+believer in the power of reason and a student of human nature. What
+Faria lacks (ironically, since everyone around thinks him mad, insanely
+obsessed with his fictitious treasure) is the Holmesian neuroses: the
+brooding violin and the opium stupor. These come from a different
+fictional archetype.
+
+So does Monte Cristo, even though he is not averse at times to applying
+Faria's deductive logic (and shares Holmes's talent for disguise).
+Having emerged in 1829 from his entombment, found his treasure,
+discovered the fate of his father and Merc\'ed\`es, and repaid his debt to
+Morrel, Dant\`es then disappears for another nine years, about which the
+reader is told virtually nothing. This second period of latency is not
+strictly a remaking but an effacement: the character who re-emerges in
+the novel as the Count of Monte Cristo is shrouded in mystery; we only
+assume, at first, that he is identical to Edmond Dant\`es on the slender
+evidence of their using the same pseudonym: `Sinbad the Sailor'. He is a
+dark, brooding figure, pale-faced, with an aversion to food and
+apparently devoid of some human feelings: he takes an evil delight in
+terrifying his young friends, Albert and Franz, with the spectacle of an
+execution. He is also, as they learn later, on good terms with the
+bandit, Luigi Vampa.
+
+The appearance of this deathly-white apparition in a box at the Roman
+opera immediately evokes two other personalities who played a major role
+in popular mythology in France in the Romantic era. The first is Lord
+Byron, a real-life character who very early was confused with his
+fictional creations, Childe Harold, Manfred and Don Juan -- all the more
+so in France, where the poetry might be known only in translation. The
+image was that of a young but world-weary hero, tormented by nameless
+despairs. The second figure was that of the vampire, associated with the
+first through the story \emph{Lord Ruthwen, or The Vampire}, which was
+attributed to Byron (though in fact written by his companion, Polidori).
+This was not by any means the only vampire to be found in France at the
+time: the theatre, notably during the 1820s, was haunted by the Undead:
+English vampires, comic vampires, female vampires \ldots{} The nature of
+the vampire was perhaps not so precisely codified as it was to be later,
+especially by Bram Stoker in that tale of another mysterious count:
+garlic, stakes, crosses, Transylvania, the vampire's native soil in the
+coffin which he keeps in the basement, these are not yet firmly
+established in the mythology. But the figure is there, and elements of
+the legend are specifically ascribed to the Byronic figure of Monte
+Cristo.
+
+What I would like to suggest is that Dumas' novel stands at a crucial
+point in the development of modern popular fiction, drawing into the
+genre elements from Romantic literature, popular theatre, history and
+actuality, and wrapping them up in a narrative carefully enough
+constructed and dramatic enough to hold the attention of a growing
+reading public with a great appetite for fiction. They would satisfy it
+not only with books, but also with the newspaper serials which had
+brought fame and fortune to Dumas' precursor in the genre, Eug\`ene Sue.
+
+\emph{Monte Cristo} owes its existence directly to Sue's \emph{Myst\`eres
+de Paris} (1842--3): it was precisely the success of Sue's tales that
+made Dumas' publishers demand a novel, rather than the historical guide
+to Paris that they had originally commissioned. Sue's appeal to the
+public was the ability to suggest the existence of a sinister underworld
+of crime and intrigue behind the fa\c{c}ade of a Paris that was familiar to
+most of his readers. The growth of the nineteenth-century metropolis led
+to a whole literature of the urban life, later exploited on film, in
+which the city is no longer seen as a place of civilized, `urbane'
+living and safety from attack, but as a menacing sub-world, in which
+human beings prey on one another or suffer fearful bouts of loneliness,
+alienation and ennui. A machine devised to supply every need of
+civilized humanity in one place has become a monster enclosing every
+form of vice and depravity. Only in England did murder continue to take
+place in country houses.
+
+As noted earlier, Paris is the setting for the greater part of the book,
+but the episodes in Marseille and Rome enrich it enormously. We do have,
+at the very centre, a very Parisian murder story, joined to a rather
+trite Parisian romance, and Dumas locates every event precisely on the
+city map, so that all the addresses are real; but the overall impression
+left by the novel is of something far larger in scope than a tale of
+Parisian wrongdoing and revenge. The episodes in Marseille and Rome may
+have been added after the book was begun -- it was Dumas' collaborator,
+Maquet, who suggested actually recounting Dant\`es' arrest and
+imprisonment, instead of starting the novel in Rome and then
+transferring the action rapidly to Paris; yet the first section proves
+absolutely crucial. Where the count, in himself, descends at times to
+the level of a melodramatic stage avenger, Dant\`es is a compelling
+character, and it is the figure of Edmond Dant\`es (whom we feel obscurely
+present in his later incarnation) which gives the latter depth and
+weight.
+
+The re-emergence of the other characters after the latency period of
+Dant\`es' imprisonment is more of a problem. Caderousse is essentially
+unchanged, Danglars more or less unrecognizable. Fernand offers the
+least plausible transformation of all, from the brave and honest
+Spaniard with a sharp sense of honour, whom we meet in the early
+chapters, to the Parisian aristocrat whose life seems to have been
+dedicated to a series of betrayals. Fernand/Morcerf seems to confirm a
+criticism of Dumas and of popular novels in general, namely that they
+tend to sacrifice character to plot.
+
+In some respects, though, in Dumas' novel the reverse is true: Dumas'
+novel is dictated by character. But it is character viewed more as an
+imaginative construct than as a psychological novelist would conceive
+it. The count himself is a poetic character, a creature of the
+imagination who draws on elements from myth as much as from everyday
+psychological observation. And, while Madame de Villefort, Valentine,
+Morrel and some others in Dumas' huge cast may be `flat' characters,
+performing a largely functional role in the development of the story,
+there are several secondary figures to whom this does not apply, notably
+Eug\'enie Danglars and Albert de Morcerf. In many ways, Eug\'enie is
+Valentine's twin. Both women are heiresses to large fortunes, both are
+presented with the alternatives of subjecting themselves to their
+father's will and marrying men whom they do not love or being confined
+to a convent. But where Valentine is willing to submit, Eug\'enie is not.
+Her lesbianism may be a trait of personality, but it is also an
+expression of her desire for independence.
+
+There is far more to \emph{The Count of Monte Cristo} than merely a tale
+of adventure and revenge. None the less, it is a book that many people
+first encounter and enjoy during their teens. Not long after Dumas'
+death, Victor Hugo wrote a letter to his friend's son, Alexandre Dumas
+\emph{fils}, in which he praised Dumas as a writer of universal appeal
+and added `He creates a thirst for reading.' After more than 150 years,
+\emph{The Count of Monte Cristo} remains one of the most popular and
+widely read novels in world literature; its longevity singles it out as
+almost unique among `popular' novels. For many of its readers, despite
+its length, it seems all too short; we want to spend more time with the
+count and the other characters in the book, more time in its bustling
+world of drama and passion. Creating that thirst for more is among
+Dumas' great contributions to literature.
+
+\vspace*{\fill}
+
+\begin{center}
+\large Notes
+\end{center}
+
+\bigskip
+
+\noindent {\small \textbf{1.} }Peuchet's text is reprinted in the edition of
+the novel by Claude Schopp (Robert Laffont, Paris, 1993).
+
+\noindent {\small \textbf{2.} }The link with Conan Doyle is actually
+strengthened by the more obvious similarities in the field of historical
+fiction (for example, between Doyle's \emph{The White Company} and
+Dumas' \emph{The Three Musketeers}). Conan Doyle may have consciously
+followed Dumas in his historical novels and unconsciously in creating
+Holmes.
+
+\clearpage
+
+\begin{center}
+\Large Further Reading
+\end{center}
+
+\bigskip
+\bigskip
+
+\hangindent=2em
+\noindent Hemmings, F. W. J., \emph{The King of Romance}, Hamish Hamilton, London,
+1979.
+
+\hangindent=2em
+\noindent Maurois, Andr\'e, \emph{Three Musketeers}. \emph{A Study of the Dumas
+Family}, translated by Gerard Hopkins, Jonathan Cape, London, 1957.
+
+\hangindent=2em
+\noindent Schopp, Claude, \emph{Alexandre Dumas}. \emph{Genius of Life},
+translated by A. J. Koch, Franklin Watts, New York, 1988.
+
+\hangindent=2em
+\noindent Stowe, Richard, \emph{Dumas}, Twayne Publishers, Boston, 1976.
+
+\cleardoublepage
+
+\mychapterstar{A Note on the Text}
+
+\emph{The Count of Monte Cristo} began publication in parts, in the
+\emph{Journal des D\'ebats}, in August 1844; this continued until January
+1846, by which time the first, 18-volume edition had been published by
+P\'etion (1845--6). The second, third and fourth editions appeared in
+1846, and there were several pirate editions in the 1840s. The book
+continued to be re-published throughout the century, the last edition in
+Dumas' lifetime being that published by Michel L\'evy in 1865.
+
+The novel was rapidly translated into English (in England, in
+\emph{Ainsworth's Magazine}, 1845, and by Emma Hardy, 1846; and in
+America in 1846); and into: Danish (1845--6); Swedish (1846); Italian
+(by Oreste Ferrario, 1847); Spanish (1858); Norwegian (1881--2); and
+German (1902). The first stage adaptation was the one made by Dumas and
+Maquet themselves (in 1848, in two parts; in 1851, in two parts; finally
+shown as one single performance, in five acts and 12 tableaux, in 1862).
+Long before this, however, there had been a stage parody by Deforges and
+Claireville, \emph{Le Comte de Monte-Fiasco} (1847) -- a further tribute
+to the notoriety of the work.
+
+The most recent stage version was a new adaptation performed in England
+in 1994. There have been condensed editions, children's editions and a
+comic-book version. There were film adaptations in 1908 (USA), 1913
+(USA), 1914 (France), 1934 (USA), 1942 (France), 1953 (France), 1961
+(France), 1975 (USA) and 2001 (USA), as well as television versions. The
+strength of the story is enough to explain why the novel has proved so
+adaptable to other media, despite its length: the central themes of
+betrayal, wrongful imprisonment and revenge are clear enough to allow
+many of the sub-plots to be discarded for reasons of time or space.
+
+Inevitably, something will be lost: there is simply so much there; and,
+from the earliest days, the process undergone by Dumas' novel was one of
+reduction, as if the original was too vast to stand by itself. There is
+also the matter of the historical moment at which \emph{The Count of
+Monte Cristo} appeared.
+
+The mid-nineteenth century saw a continuing struggle to establish the
+credentials of the literary novel, by giving it the dual aims that
+Stendhal had helped to pioneer, which were those of exploring the
+enduring features of human psychology and analysing a particular state
+of human society. In contrast to such enterprises, fiction which
+involved larger-than-life characters and implausible situations, Gothic
+horrors, melodramatic incidents and so on appeared mere entertainment.
+The gradual emergence of realism in the European novel was not
+altogether to the advantage of Dumas, whose image was less that of the
+austere priest than the jolly friar, and whose novels poured out of a
+factory, the purpose of which was to create entertainment and sell it
+for money.
+
+This explains why, though Thackeray admitted finding the book impossible
+to put down, English novelists like George Eliot considered that `the
+French' -- Dumas, Hugo and Balzac -- were mistakenly tempted to deal
+with the exception rather than the rule: to look for melodramatic
+situations and characters, when they should be exploring the everyday
+life that revealed what is enduring in human nature. It is not hard,
+anyway, to guess that the author of \emph{Middlemarch} and \emph{The
+Mill on the Floss} would not find much to please her in \emph{The Three
+Musketeers} or \emph{The Count of Monte Cristo}.
+
+There is also the question of Dumas' style, which is usually
+unremarkable; and the fact that he wrote his great novels in
+collaboration with Maquet, which does not accord with the idea of the
+author as sole creator. No wonder people have thought they could treat
+\emph{Monte Cristo} as a treasure-trove rather than a sacred text, or
+that the many adaptations, abbreviations and reworkings of it have been
+done with a good deal less reverence (and consequently, more often than
+not, a good deal more success) than, say, Claude Chabrol brought to his
+film version of \emph{Madame Bovary}. In the main, its fate has been
+that of most nineteenth-century `adventure' novels: it has been treated
+as mere entertainment for adults or literature for the young.
+
+The truth is that, more because of the subject-matter than because of
+its length, the novel has had to be tampered with before it can be
+offered to young readers; or, as one may conjecture, to readers in
+mid-Victorian England. And, because this is merely a `popular' novel, as
+well as one which represents a huge amount of work for a translator,
+there has been little enthusiasm in the English-speaking world for
+re-translating it.
+
+Claude Schopp's edition (Robert Laffont, 1993), which lists the main
+foreign translations, records nothing into English since 1910. The most
+readily available edition in Britain at the moment reproduces the
+anonymous translation first published by Chapman \& Hall in 1846. Its
+editor for the Oxford World's Classics series (1990), David Coward,
+writes that `with one or two exceptions, the small number of ``new''
+translations since made have drawn heavily upon \ldots{} this classic
+version'.
+
+Anyone who has read \emph{The Count of Monte Cristo} only in this
+`classic version' has never read Dumas' novel. For a start, the
+translation is occasionally inaccurate and is written in a
+nineteenth-century English that now sounds far more antiquated than the
+French of the original does to a modern French reader: to mention one
+small point in this connection, Dumas uses a good deal of dialogue (he
+wrote by the line), and the constant inversions of `said he' and `cried
+he' are both irritating and antiquated. There are some real oddities,
+like the attempt to convey popular speech (which does not correspond to
+anything in Dumas), when the sailor in Chapter {\small XXV}
+says: `that's one of them nabob gentlemen from Ingy
+[\emph{sic}], no doubt \ldots' Even aside from that, most of the
+dialogues in this nineteenth-century translation, in which the
+characters utter sentences like: `I will join you ere long', `I confess
+he asked me none' and `When will all this cease?', have the authentic
+creak of the Victorian stage boards and the gaslit melodrama.
+
+It can be argued that this language accurately conveys an aspect of
+Dumas' work, but not even his worst detractors would pretend that there
+is nothing more to it than that. Still less acceptable, however, than
+the language of this Victorian translation is the huge number of
+omissions and bowdlerizations of Dumas' text. The latter include part of
+Franz's opium dream at the end of Chapter {\small XXXI},
+some of the dialogue between Villefort and Madame Danglars in
+Chapter {\small LXVII}, and several parts of
+Chapter {\small XCVII}, on Eug\'enie and Louise's flight to
+Belgium. In some cases the changes are so slight as to be quite hard to
+detect. In the description of Eug\'enie at the opera
+(Chapter {\small LIII}) for example, Dumas remarks that,
+if one could reproach her with anything, it was that, both in her
+upbringing and her appearance, `she seemed rather to belong to another
+sex'. The English translator renders this: `As for her attainments, the
+only fault to be found with them was \ldots{} that they were somewhat
+too erudite and masculine for so young a person' (p. 542)! At the end of
+Chapter {\small XCVII}, the translation (p. 950) simply
+omits the few lines of dialogue where Dumas has Eug\'enie say that
+`\emph{le rapt est bel et bien consomm\^e}' -- where the word \emph{rapt}
+(`abduction') has a rather too overtly sexual connotation. Similarly,
+earlier in the same chapter, where Eug\'enie jokes that anyone would think
+she was `abducting' (\emph{enl\`eve}) Louise -- another word used almost
+exclusively of a man with a woman -- the translator prefers the more
+neutral phrase `carrying me off' and omits altogether Louise's remark
+that Eug\'enie is `a real Amazon'. Another anonymous translation (Dent,
+1894) refers to `the escape' rather than `the abduction' -- which makes
+nonsense of Louise's reply that it is not a true abduction since it has
+been accomplished without violence.
+
+What may be more surprising than these concessions to the prudery of the
+age is that the Victorian translators left in as much as they did. And
+the omissions are by no means all to do with sexual matters. At the
+start of Chapter {\small XXXIV}, for example, the
+translator decides to spare us the description of the route taken
+through Rome by Albert and Franz on their way to the Colosseum (though
+the 1894 translator restores it). A whole paragraph analysing the
+character of M. de Villefort at the start of
+Chapter {\small XLVIII} is cut out; almost a whole page of
+dialogue between Albert and Monte Cristo, on horses, in
+Chapter {\small LXXXV} is cavalierly omitted (part was
+restored by the translator of 1894); and so on. This is only a tiny
+sample of what is, in reality, a vast number of phrases omitted, and
+occasionally mistranslated.
+
+What we see here, interestingly enough, is a stage in the process of
+transforming Dumas' text into something simpler, less complex, less rich
+in allusions, but more concentrated in plot and action. The 1846
+translator already has an idea of what kind of novel this is, and that
+dictates what he, or she, can afford to omit: travelogue, classical
+references, sexual and psychological analysis, and so on. None of these
+is essential to the plot of a thriller, and if some of them will
+embarrass English readers, then why leave them in? The only problem is
+that, nearly 150 years later, we do not have quite the same idea of what
+is and what is not important. It was high time to go back to Dumas,
+entire and unexpurgated.
+
+As the basis for my translation, I have used the edition by Schopp,
+quoted above, and the three-volume edition in the \emph{Livre de Poche}
+(1973). Both of these use an arrangement of chapters which differs
+slightly from that in the nineteenth-century English translations. I
+have followed the \emph{Livre de Poche} in not changing Dumas' `errors'
+of chronology etc. in the text as Schopp does; instead I have pointed
+out the more important ones in the notes. I owe a debt to Schopp and to
+Coward's edition in the World's Classics series for some of the
+information in the notes.
+
+On the broader question of translation, I have tried above all to
+produce a version that is accurate and readable. A great deal of
+nonsense is written about translation, particularly by academics who
+approach it either as a terrain for theoretical debate or, worse still,
+as a moral issue: `the translator must always be faithful to his
+original,' Leonard Tancock wrote, oddly assuming that translation is a
+masculine activity, even though on this occasion he was prefacing Nancy
+Mitford's translation of \emph{La Princesse de Cl\`eves} (Penguin, 1978).
+` \ldots{} he has no right whatever to take liberties with it \ldots{}
+Nor has he any right to try to smooth the reader's path by the omission
+of ``dull'' bits, short-circuitings, explanatory additions, radical
+transferences or changes of order.' Why? And who says? Is it the reader
+who is demanding this perfection, this absence of explanatory additions,
+and so on?
+
+Such academic theorists insist that a translation must read like a
+translation -- it is somehow immoral to conceal the process that has
+gone into making it. `Ordinary' readers usually demand the opposite, and
+reviewers in quite respectable papers sometimes show little appreciation
+of what the process means and involves: `Not all of this material works
+in translation,' said one serious review of a book by Umberto Eco; and
+another: ` \ldots{} the stories {[}of Viktoria Tokareva{]} are well
+served by their translator, who hardly ever gets in the way'.
+
+In philosophical terms I am quite willing to admit the impossibility of
+translation, while still having in practical terms to engage in it and
+to believe that everything must, to some extent, be translatable. I feel
+no obligation to avoid smoothing the reader's path and none, on the
+other hand, to `getting in the way' from time to time. Above all, I want
+to convey some of the pleasure of reading Dumas to those who cannot do
+so in the original language and, through my one, particular version
+(since no translation can ever be definitive), to reveal aspects of his
+work that are not to be found in any of the other existing versions.
+This is a new translation and consequently a new interpretation of a
+great -- and great popular -- novel. If nothing else, most people would
+surely agree that it is long overdue.
+
+%------------------------------------------------
+% Main matter
+%------------------------------------------------
+\mainmatter
+
+\addcontentsline{toc}{book}{The Count of Monte Cristo}
+\book*{The Count of \\ Monte Cristo}
+
+\addcontentsline{toc}{part}{Part 1}
+\part*{Part 1}
+
+\mychapter{Marseille -- Arrival}
+
+On February 24, 1815, the lookout at Notre-Dame de la Garde signalled
+the arrival of the three-master \emph{Pharaon}, coming from Smyrna,
+Trieste and Naples. As usual, a coastal pilot immediately left the port,
+sailed hard by the Ch\^ateau d'If, and boarded the ship between the Cap de
+Morgiou and the island of Riou.
+
+At once (as was also customary) the terrace of Fort
+Saint-Jean\textsuperscript{1} was thronged with
+onlookers, because the arrival of a ship is always a great event in
+Marseille, particularly when the vessel, like the \emph{Pharaon}, has
+been built, fitted out and laded in the shipyards of the old port and
+belongs to an owner from the town.
+
+Meanwhile the ship was drawing near, and had successfully negotiated the
+narrows created by some volcanic upheaval between the islands of
+Calseraigne and Jarre; it had rounded Pom\`egue and was proceeding under
+its three topsails, its outer jib and its spanker, but so slowly and
+with such melancholy progress that the bystanders, instinctively sensing
+some misfortune, wondered what accident could have occurred on board.
+Nevertheless, those who were experts in nautical matters acknowledged
+that, if there had been such an accident, it could not have affected the
+vessel itself, for its progress gave every indication of a ship under
+perfect control: the anchor was ready to drop and the bowsprit shrouds
+loosed. Next to the pilot, who was preparing to guide the \emph{Pharaon}
+through the narrow entrance to the port of Marseille, stood a young man,
+alert and sharp-eyed, supervising every movement of the ship and
+repeating each of the pilot's commands.
+
+One of the spectators on the terrace of Fort Saint-Jean had been
+particularly affected by the vague sense of unease that hovered among
+them, so much so that he could not wait for the vessel to come to land;
+he leapt into a small boat and ordered it to be rowed out to the
+\emph{Pharaon}, coming alongside opposite the cove of La R\'eserve. When
+he saw the man approaching, the young sailor left his place beside the
+pilot and, hat in hand, came and leant on the bulwarks of the ship.
+
+He was a young man of between eighteen and twenty, tall, slim, with fine
+dark eyes and ebony-black hair. His whole demeanour possessed the calm
+and resolve peculiar to men who have been accustomed from childhood to
+wrestle with danger.
+
+`Ah, it's you, Dant\`es!' the man in the boat cried. `What has happened,
+and why is there this air of dejection about all on board?'
+
+`A great misfortune, Monsieur Morrel!' the young man replied. `A great
+misfortune, especially for me: while off Civita Vecchia, we lost our
+good Captain Lecl\`ere.'
+
+`And the cargo?' the ship owner asked brusquely.
+
+`It has come safe to port, Monsieur Morrel, and I think you will be
+content on that score. But poor Captain Lecl\`ere \ldots'
+
+`What happened to him, then?' the shipowner asked, visibly relieved. `So
+what happened to the good captain?'
+
+`He is dead.'
+
+`Lost overboard?'
+
+`No, Monsieur, he died of an apoplectic fever, in terrible agony.' Then,
+turning back to his crew, he said: `Look lively, there! Every man to his
+station to drop anchor!'
+
+The crew obeyed. As one man, the eight or ten sailors of which it was
+composed leapt, some to the sheets, others to the braces, others to the
+halyards, others to the jib, and still others to the brails. The young
+sailor glanced casually at the start of this operation and, seeing that
+his orders were being carried out, prepared to resume the conversation.
+
+`But how did this misfortune occur?' the shipowner continued, picking it
+up where the young man had left off.
+
+`By heaven, Monsieur, in the most unexpected way imaginable: after a
+long conversation with the commander of the port, Captain Lecl\`ere left
+Naples in a state of great agitation. Twenty-four hours later, he was
+seized with fever and, three days after that, he was dead \ldots{} We
+gave him the customary funeral and he now rests, decently wrapped in a
+hammock, with a thirty-six-pound cannonball at his feet and another at
+his head, off the island of Giglio. We've brought his medal and his
+sword back for his widow. Much good it did him,' the young man
+continued, with a melancholy smile, `to fight the war against the
+English for ten years -- only to die at last, like anyone else, in his
+bed.'
+
+`Dammit, Monsieur Edmond, what do you expect?' said the shipowner, who
+appeared to be finding more and more to console him in his grief. `We
+are all mortal. The old must give way to the young, or else there would
+be no progress or promotion. As long as you can assure me that the cargo
+\ldots'
+
+`All is well with it, Monsieur Morrel, I guarantee you. If you take my
+advice, you will not discount this trip for a profit of 25,000 francs.'
+
+Then, as they had just sailed past the Round Tower, the young sailor
+cried: `Furl the topmast sails, the jib and the spanker! Look lively!'
+
+The order was obeyed with almost as much dispatch as on a man-o'-war.
+
+`Let go and brail all!'
+
+At this last command, all the sails were lowered and the progress of the
+ship became almost imperceptible, driven only by the impetus of its
+forward motion.
+
+`And now, if you would like to come aboard, Monsieur Morrel,' Dant\`es
+said, observing the owner's impatience, `I see your
+supercargo,\textsuperscript{2} Monsieur Danglars,
+coming out of his cabin. He will give you all the information that you
+desire. As for me, I must see to the mooring and put the ship in
+mourning.'
+
+The owner did not need asking twice. He grasped hold of a line that
+Dant\`es threw to him and, with an agility that would have done credit to
+a seaman, climbed the rungs nailed to the bulging side of the ship,
+while Dant\`es went back to his post and left the conversation to the man
+he had introduced as Danglars: the latter was indeed emerging from his
+cabin and coming across to the shipowner.
+
+This new arrival was a man, twenty-five to twenty-six years old,
+somewhat sombre in appearance, obsequious towards his superiors and
+insolent to his subordinates; hence, even apart from the label of
+supercargo, which always in itself causes aversion among sailors, he was
+generally as much disliked by the crew as Dant\`es was loved by them.
+
+`Well, Monsieur Morrel,' said Danglars, `you have heard the bad news, I
+suppose?'
+
+`Yes, yes, poor Captain Lecl\`ere! He was a fine and upright man!'
+
+`And above all an excellent sailor, weathered between the sea and the
+heavens, as was proper in a man responsible for looking after the
+interests of so important a firm as Morrel and Son,' Danglars replied.
+
+`Even so,' the shipowner replied, watching Dant\`es while he searched for
+his mooring. `Even so, I think one need not be a seaman of such long
+experience as you say, Danglars, to know the business: there is our
+friend Edmond going about his, it seems to me, like a man who has no
+need to ask advice of anybody.'
+
+`Indeed,' said Danglars, casting a sidelong glance at Dant\`es with a
+flash of hatred in his eyes. `Yes, indeed, he is young and full of
+self-confidence. The captain was hardly dead before he had taken command
+without asking anyone, and made us lose a day and a half on the island
+of Elba, instead of returning directly to Marseille.'
+
+`As far as taking command of the ship is concerned,' said the owner,
+`that was his duty as first mate. As for losing a day and a half at
+Elba, he was in the wrong, unless there was some damage to the ship that
+needed repairing.'
+
+`The ship was in as good shape as I am, and as good as I hope you are,
+Monsieur Morrel. That day and a half was lost on a whim, for nothing
+other than the pleasure of going ashore.'
+
+`Dant\`es,' the owner said, turning towards the young man. `Would you come
+here.'
+
+`Your pardon, Monsieur,' Dant\`es said. `I shall be with you in an
+instant.' Then, to the crew, he called: `Drop anchor!'
+
+The anchor was immediately lowered and the chain ran out noisily. Dant\`es
+stayed at his post, even though the pilot was there, until the last
+operation had been carried out, then ordered: `Lower the pennant and the
+flag to half-mast, unbrace the yards!'
+
+`You see,' Danglars said. `I do believe he thinks himself captain
+already.'
+
+`So he is, in effect,' said the owner.
+
+`Yes, apart from your signature and that of your partner, Monsieur
+Morrel.'
+
+`By gad, why shouldn't we leave him in the job?' said the owner. `He is
+young, I grant you, but he seems made for it and very experienced in his
+work.'
+
+A cloud passed across Danglars' brow.
+
+`Excuse me, Monsieur Morrel,' Dant\`es said as he came over. `Now that the
+ship is moored, I am entirely at your disposal: I think you called me?'
+
+Danglars took a step back.
+
+`I wanted to ask why you stopped on the island of Elba.'
+
+`I don't know, Monsieur. It was to carry out a last order from Captain
+Lecl\`ere, who gave me, on his deathbed, a packet for Marshal
+Bertrand.'\textsuperscript{3}
+
+`Did you see him, Edmond?'
+
+`Whom?'
+
+`The Grand Marshal.'
+
+`Yes.'
+
+Morrel looked about him and drew Dant\`es aside.
+
+`And how is the emperor?' he asked, earnestly.
+
+`He is well, as far as I can judge by my own eyes.'
+
+`So you saw the emperor, too, did you?'
+
+`He came to visit the marshal while I was there.'
+
+`And did you speak to him?'
+
+`It was he, Monsieur, who spoke to me,' Dant\`es said, smiling.
+
+`And what did he say?'
+
+`He asked me about the ship, the time of its departure for Marseille,
+the route it had taken and the cargo we were carrying. I think that, had
+it been empty and I the master of it, he intended to buy it; but I told
+him that I was only the first mate and that the ship belonged to the
+firm of Morrel and Son. ``Ah, yes!'' he said. ``I know them. The Morrels
+have been shipowners from father to son, and there was Morrel who served
+in the same regiment as I did, when I was garrisoned at Valence.'' '
+
+`By heaven, that's a fact!' the shipowner cried, with delight. `It was
+Policar Morrel, my uncle, who later made captain. Dant\`es, tell my uncle
+that the emperor remembered him, and you will bring tears to the old
+trooper's eyes. Come, come, now,' he went on, putting a friendly arm
+across the young man's shoulders, `you did well to follow Captain
+Lecl\`ere's instructions and stop on Elba; even though, if it were known
+that you gave a packet to the marshal and spoke to the emperor, you
+might be compromised.'
+
+`How could it compromise me, Monsieur?' said Dant\`es. `I don't even know
+what I was carrying, and the emperor only asked me the same questions
+that he would have put to anyone else. But please excuse me,' he
+continued. `The health authorities and the Customs are coming on board.
+With your permission?'
+
+`Of course, of course, my dear Dant\`es, carry on.'
+
+The young man went off and, as he did so, Danglars returned.
+
+`So,' he asked, `it appears that he gave you good reason for stopping
+off at Porto Ferrajo?'
+
+`Excellent reason, my dear Danglars.'
+
+`I am pleased to hear it,' the other replied. `It is always distressing
+to see a comrade fail in his duty.'
+
+`Dant\`es did his duty,' the shipowner answered, `and there is no more to
+be said. It was Captain Lecl\`ere who ordered him to put into port.'
+
+`Speaking of Captain Lecl\`ere, did he not give you a letter from him?'
+
+`Who?'
+
+`Dant\`es.'
+
+`Not to me! Was there one?'
+
+`I believe that, apart from the packet, Captain Lecl\`ere entrusted him
+with a letter.'
+
+`Which packet are you referring to, Danglars?'
+
+`The same that Dant\`es delivered when we stopped at Porto Ferrajo.'
+
+`And how did you know that he had a packet to deliver at Porto Ferrajo?'
+
+Danglars blushed. `I was passing by the door of the captain's cabin,
+which was partly open, and I saw him handing the packet and a letter to
+Dant\`es.'
+
+`He did not mention it,' said the owner. `But if he has such a letter,
+he will give it to me.'
+
+Danglars thought for a moment.
+
+`In that case, Monsieur Morrel,' he said, `I beg you to say nothing
+about it to Dant\`es. I must have been mistaken.'
+
+At that moment the young man came back and Danglars left them.
+
+`Now, my dear Dant\`es, are you free?' the owner asked.
+
+`Yes, Monsieur.'
+
+`It did not take long.'
+
+`No, I gave the Customs a list of our cargo; as for the port
+authorities, they sent a man with the coastal pilot, and I handed our
+papers over to him.'
+
+`So you have nothing more to do here?'
+
+Dant\`es cast a rapid glance about him. `No, everything is in order,' he
+said.
+
+`Then you can come and take dinner with us?'
+
+`Please, Monsieur Morrel, I beg you to excuse me, but the first thing I
+must do is to visit my father. Nonetheless, I am most grateful for the
+honour you do me.'
+
+`That's proper, Dant\`es, very proper. I know that you are a good son.'
+
+`And \ldots' Dant\`es asked, somewhat hesitantly, `as far as you know,
+he's in good health, my father?'
+
+`I do believe so, my dear Edmond, though I have not seen him.'
+
+`Yes, he stays shut up in his little room.'
+
+`Which at least proves that he lacked nothing while you were away.'
+
+Dant\`es smiled.
+
+`My father is a proud man, Monsieur, and even if he were short of
+everything, I doubt if he would have asked for help from anyone in the
+world, except God.'
+
+`Now, when you have done that, we can count on your company.'
+
+`I must beg you once more to excuse me, Monsieur Morrel, but after that
+first visit, there is another that is no less important to me.'
+
+`Ah, Dant\`es, that's true; I was forgetting that there is someone in Les
+Catalans who must be expecting you with no less impatience than your
+father -- the lovely Merc\'ed\`es.'
+
+Dant\`es smiled.
+
+`Ah, ha,' said the owner, `now I understand why she came three times to
+ask me for news of the \emph{Pharaon}. Dash it, Edmond! You're a lucky
+fellow, to have such a pretty mistress.'
+
+`She is not my mistress, Monsieur,' the young sailor said gravely. `She
+is my fianc\'ee.'
+
+`It sometimes amounts to the same thing,' the owner said, with a
+chuckle.
+
+`Not for us, Monsieur,' Dant\`es replied.
+
+`Come, come, my dear Edmond,' the other continued. `Don't let me detain
+you. You have looked after my business well enough for me to give you
+every opportunity to look after your own. Do you need any money?'
+
+`No, Monsieur, I have all my salary from the trip -- that is, nearly
+three months' pay.'
+
+`You manage your affairs well, my boy.'
+
+`You might add that my father is a poor man, Monsieur Morrel.'
+
+`Yes, indeed, I know you are a good son to him. So: go and see your
+father. I, too, have a son and I should bear a grudge against the man
+who kept him away from me, after a three-month voyage.'
+
+`May I take my leave, then?' the young man said, with a bow.
+
+`Yes, if you have nothing more to say to me.'
+
+`No.'
+
+`When Captain Lecl\`ere was dying, he did not give you a letter for me?'
+
+`It would have been impossible for him to write one, Monsieur. But that
+reminds me: I wanted to ask you for a fortnight's leave.'
+
+`To get married?'
+
+`Firstly, then to go to Paris.'
+
+`Very well! Have as much time as you want, Dant\`es. It will take us a
+good six weeks to unload the vessel and we shall hardly be ready to put
+to sea again within three months \ldots{} In three months' time,
+however, you must be there. The \emph{Pharaon},' the shipowner
+continued, putting a hand across the young sailor's shoulders, `cannot
+set sail without its captain.'
+
+`Without its captain!' Dant\`es cried, his eyes lighting up with joy. `Be
+very careful what you are saying, Monsieur, because you have just
+touched on the most secret of my heart's desires. Can it be that you
+intend to appoint me captain of the \emph{Pharaon}?'
+
+`If it was up to me alone, I should grasp your hand, my dear Dant\`es, and
+say to you: ``the matter is settled!'' But I have a partner, and you
+know the Italian proverb: \emph{chi ha compagno, ha
+padrone}.\textsuperscript{4} But, at least, we
+are half-way there, since you already have one of the two votes you
+need. Leave it to me to get you the other, and I shall do my best.'
+
+`Oh, Monsieur Morrel!' the young sailor cried, with tears in his eyes,
+grasping the shipowner's hands. `Monsieur Morrel, I thank you, on behalf
+of my father and of Merc\'ed\`es.'
+
+`Fine, Edmond, fine! There is a God in heaven who looks after honest
+folk. Go and see your father, go and see Merc\'ed\`es, then when that's
+done, come and see me.'
+
+`But don't you want me to accompany you back to land?'
+
+`No, thank you. I shall stay here to settle my accounts with Danglars.
+Were you happy with him during the voyage?'
+
+`It depends on what you understand by that question, Monsieur. If you
+mean, as a good companion, no, because I think that he has not liked me
+since the day when I had the folly, after a trifling dispute between us,
+to suggest that we should stop for ten minutes on the isle of Monte
+Cristo to settle the matter. It was wrong of me to propose that, and he
+was right to refuse. If you are asking me about him as a supercargo, I
+think there is nothing to say, and that you will be satisfied with the
+manner in which his duties have been carried out.'
+
+`Come now, Dant\`es,' the shipowner asked, `if you were captain of the
+\emph{Pharaon}, would you be pleased to keep Danglars?'
+
+`Whether as captain or as first mate, Monsieur Morrel,' Dant\`es replied,
+`I shall always have the highest regard for those who enjoy the
+confidence of my owners.'
+
+`Well, well, Dant\`es, you are clearly a fine lad, in every respect. Let
+me detain you no longer, for I can see that you are on tenterhooks.'
+
+`I may take my leave?' asked Dant\`es.
+
+`Go on, I'm telling you.'
+
+`Will you permit me to use your boat?'
+
+`Take it.'
+
+`Au revoir, Monsieur Morrel, and thank you a thousand times.'
+
+`Au revoir, dear Edmond, and good luck!'
+
+The young sailor leapt into the boat, seated himself in the stern and
+gave the order to row across to the Canebi\`ere. Two sailors immediately
+bent over their oars and the vessel proceeded as fast as it could, among
+the thousand small boats that obstruct the sort of narrow alleyway
+leading, between two lines of ships, from the harbour entrance to the
+Quai d'Orl\'eans.
+
+The shipowner looked after him, smiling, until the boat touched land and
+he saw him leap on to the cobbled quay, where he was instantly lost in
+the variegated crowd that, from five in the morning until nine in the
+evening, throngs the famous street known as La Canebi\`ere: the modern
+inhabitants of this old Phocean colony are so proud of it that they
+proclaim, with all the seriousness in the world, in that accent which
+gives such savour to everything they say: `If Paris had the Canebi\`ere,
+Paris would be a little Marseille.'
+
+Turning, the shipowner saw Danglars standing behind him, apparently
+awaiting orders but in reality, like him, watching the young sailor's
+departure. Yet there were very different expressions in these two pairs
+of eyes following the one man.
+
+\bigskip
+
+\bigskip
+
+\mychapter{Father and Son}
+
+We shall leave Danglars, gripped by the demon of hatred, trying to
+poison the shipowner's ear with some malicious libel against his
+comrade, and follow Dant\`es who, after walking along the Canebi\`ere, took
+the Rue de Noailles, entered a small house on the left side of the
+All\'ees de Meilhan and hastened up the four flights of a dark stairway.
+There, holding the banister with one hand, while the other repressed the
+beating of his heart, he stopped before a half-open door through which
+he could see to the back of a small room.
+
+In this room lived Dant\`es' father.
+
+News of the arrival of the \emph{Pharaon} had not yet reached the old
+man who was standing on a chair, engaged with trembling hands in pinning
+up some nasturtiums and clematis that climbed across the trellis outside
+his window. Suddenly, he felt himself grasped around the waist and a
+well-known voice exclaim behind him: `Father! My dear father!'
+
+The old man cried out and turned around; then, seeing his son, fell into
+his arms, pale and trembling.
+
+`What is it, father?' the young man exclaimed, with concern. `Are you
+unwell?'
+
+`No, no, dear Edmond, my son, my child. No, but I was not expecting you
+-- and the joy, the shock of seeing you like this, unexpectedly \ldots{}
+Oh, heavens! It is too much for me!'
+
+`Now, then, father, calm yourself! I am really here! They always say
+that joy cannot harm you, which is why I came in without warning. Come
+now, smile; don't look at me like that, with those wild eyes. I am back
+and there is happiness in store for us.'
+
+`I'm pleased to hear it, my boy,' the old man continued. `But what
+happiness? Are you going to stay with me from now on? Come, tell me
+about your good fortune!'
+
+`God forgive me,' the young man said, `for rejoicing at good fortune
+which has brought grief to the family of another. But, God knows, I
+never wished for it; it has happened, and I do not have the heart to
+grieve at it. Our good Captain Lecl\`ere is dead, father, and it seems
+likely that, thanks to Monsieur Morrel's support, I shall have his
+command. Do you understand, father? A captain at twenty! With a salary
+of a hundred \emph{louis}\textsuperscript{1} and
+a share in the profits! Isn't that better than a poor sailor like myself
+could expect?'
+
+`Yes, my son, yes,' said the old man. `This is indeed a stroke of luck.'
+
+`So I want you to have a little house, with the first money I earn, and
+a garden to grow your clematis, your nasturtiums and your honeysuckle
+\ldots{} But what's wrong, father? You look ill!'
+
+`An instant, don't worry! It is nothing.' And, his strength failing him,
+he leant back.
+
+`Father!' cried the young man. `Come, have a glass of wine; it will
+revive you. Where do you keep your wine?'
+
+`No, thank you, don't bother to look for it; there is no need,' he
+replied, trying to restrain his son.
+
+`Yes, indeed there is, father. Show me it.' He opened one or two
+cupboards.
+
+`It's a waste of time \ldots' the old man said. `There is no wine left.'
+
+`What! No wine!' Dant\`es said, paling in turn as he looked from the old
+man's sunken and livid cheeks to the empty cupboards. `What! You have no
+wine left? Have you been short of money, father?'
+
+`I am short of nothing, now that you are here,' said the old man.
+
+`But I left you two hundred francs,' Dant\`es stammered, wiping the sweat
+from his brow, `two months ago, as I was leaving.'
+
+`Yes, yes, Edmond, so you did; but when you left you forgot a small debt
+to my neighbour Caderousse. He reminded me of it and said that if I did
+not settle it on your behalf, he would go and reclaim it from Monsieur
+Morrel. So, you understand, I was afraid that it might do you some
+harm.'
+
+`And?'
+
+`And I paid it.'
+
+`But,' Dant\`es exclaimed, `I owed Caderousse a hundred and forty francs!'
+
+`Yes,' the old man mumbled.
+
+`And you paid them out of the two hundred francs that I left you?'
+
+His father nodded.
+
+`Which means that you lived for three months on sixty francs!' the young
+man exclaimed.
+
+`You know how small my needs are.'
+
+`Oh, heaven, heaven, forgive me!' Edmond cried, falling on his knees in
+front of the old man.
+
+`What are you doing?'
+
+`Ah! You have broken my heart!'
+
+`Pah! You are here,' the old man said, with a smile. `All is forgotten,
+because all is well.'
+
+`Yes, here I am,' said the young man. `Here I am with a fine future and
+a little money. Here, father,' he said, `take it, take it and send out
+for something immediately.'
+
+He emptied the contents of his pockets on the table: a dozen gold coins,
+five or six five-franc pieces and some small change.
+
+Old Dant\`es' face lit up.
+
+`Whose is that?' he asked.
+
+`Mine! Thine! Ours, of course! Take it, buy some food and enjoy
+yourself. There will be more tomorrow.'
+
+`Gently, gently,' the old man said, smiling. `If you don't mind, I shall
+go easy on your money: if people see me buying too many things at once,
+they will think that I had to wait for you to come back before I went
+shopping.'
+
+`Do as you think best, but first of all, father, get yourself a
+housemaid: I don't want you to live on your own from now on. I have some
+contraband coffee and some excellent tobacco in a little chest in the
+hold. You will have it tomorrow. But, hush! Someone is coming.'
+
+`That will be Caderousse, who has learned of your arrival and is no
+doubt coming to welcome you back.'
+
+`There's a fellow who says one thing and thinks another,' Edmond
+muttered. `No matter. He is a neighbour who has helped us in the past,
+so let him come in.'
+
+Just as Edmond finished saying this under his breath, the black, bearded
+head of Caderousse appeared on the landing, framed in the outer door. A
+man of twenty-five or twenty-six years of age, he was holding a piece of
+cloth which, being a tailor, he was about to fashion into the lining of
+a jacket.
+
+`You're back again, then, Edmond?' he said, with a thick Marseille
+accent and a broad smile, revealing teeth as white as ivory.
+
+`As you can see, neighbour, and entirely at your service,' Dant\`es
+replied, this polite formula barely disguising his coldness towards the
+man.
+
+`Thank you, thank you. Fortunately, I need nothing; in fact, it is
+sometimes others who need me.' Dant\`es bridled. `I am not saying that for
+you, my boy. I lent you money and you returned it. That's how things are
+done between good neighbours, and we're quits.'
+
+`We are never quits towards those who have done us a favour,' said
+Dant\`es. `Even when one ceases to owe them money, one owes them
+gratitude.'
+
+`There is no sense in speaking of that: what's past is past. Let's talk
+about your happy return, young man. I just happened to go down to the
+harbour to fetch some brown cloth, when I met our friend Danglars.
+``You're in Marseille?'' I exclaimed. ``Yes, as you see.'' ``I thought
+you were in Smyrna.'' ``It could well be, because I have just come back
+from there.'' ``And where is young Edmond, then?'' ``At his father's, I
+suppose,'' Danglars told me. So I came at once,' Caderousse concluded,
+`to have the pleasure of shaking the hand of a friend.'
+
+`Dear Caderousse,' the old man said. `He is so fond of us.'
+
+`Indeed, I am, and I hold you in all the greater esteem, since honest
+people are so rare! But it seems you have come into money, my boy?' the
+tailor went on, glancing at the handful of gold and silver that Dant\`es
+had emptied on to the table.
+
+The young man observed a flash of greed light up his neighbour's dark
+eyes. `Heavens, no!' he said casually. `That money is not mine. I was
+just telling my father that I was afraid he might have wanted for
+something while I was away and, to reassure me, he emptied his purse on
+the table. Come, father,' he continued. `Put that money back in your
+pocket -- unless, of course, our neighbour needs some for himself, in
+which case it is at his disposal.'
+
+`Indeed not, my boy,' said Caderousse. `I need nothing and, thank God,
+my business holds body and soul together. Keep your money, keep it; one
+can never have too much. Still, I am obliged for your offer, as much as
+if I had taken advantage of it.'
+
+`It was well meant,' said Dant\`es.
+
+`I don't doubt that it was. So, I learn that you are on good terms with
+Monsieur Morrel, sly one that you are?'
+
+`Monsieur Morrel has always been very good to me,' Dant\`es answered.
+
+`In that case, you were wrong to refuse dinner with him.'
+
+`What do you mean: refuse dinner?' Old Dant\`es asked. `Did he invite you
+to dinner?'
+
+`Yes, father,' said Edmond, smiling at his father's astonishment on
+learning of this high honour.
+
+`So why did you refuse, son?' the old man asked.
+
+`So that I could come straight back here, father,' the young man
+answered. `I was anxious to see you.'
+
+`He must have been put out by it, that good Monsieur Morrel,' Caderousse
+remarked. `When one hopes to be made captain, it is a mistake to get on
+the wrong side of one's owner.'
+
+`I explained the reason for my refusal and I hope he understood it.'
+
+`Even so, to be promoted to captain, one must flatter one's bosses a
+little.'
+
+`I expect to become captain without that,' Dant\`es retorted.
+
+`So much the better! All your old friends will be pleased for you and I
+know someone over there, behind the Citadelle de Saint-Nicholas, who
+will not be unhappy about it, either.'
+
+`Merc\'ed\`es?' the old man said.
+
+`Yes, father,' Dant\`es resumed. `And, with your permission, now that I've
+seen you, now that I know you are well and that you have all you need, I
+would like to ask your leave to go and visit Les Catalans.'
+
+`Go, child,' Old Dant\`es said. `And may God bless you as much in your
+wife as He has blessed me in my son.'
+
+`His wife!' said Caderousse. `Hold on, old man, hold on! As far as I
+know, she's not that yet!'
+
+`No,' Edmond replied, `but in all probability she soon will be.'
+
+`Never mind,' said Caderousse, `never mind. You have done well to hurry
+back, my boy.'
+
+`Why?'
+
+`Because Merc\'ed\`es is a beautiful girl, and beautiful girls are never
+short of admirers, especially that one: there are dozens of them after
+her.'
+
+`Really?' Edmond said with a smile, not entirely concealing a hint of
+unease.
+
+`Oh, yes,' Caderousse continued, `and some with good prospects, too.
+But, of course, you are going to be a captain, so she'll be sure not to
+refuse you.'
+
+`By which you mean,' Dant\`es said, smiling, but barely concealing his
+anxiety, `that if I were not a captain \ldots'
+
+`Ah! Ah!' said Caderousse.
+
+`Come, now,' the young man said. `I have a better opinion than you of
+women in general, and Merc\'ed\`es in particular, and I am persuaded that,
+whether I were a captain or not, she would remain faithful to me.'
+
+`So much the better! When one is going to get married, it is always a
+good thing to have faith. But enough of that. Take my advice, lad: don't
+waste any time in telling her of your return and letting her know about
+your aspirations.'
+
+`I am going at once,' said Edmond.
+
+He embraced his father, nodded to Caderousse and left.
+
+Caderousse stayed a moment longer, then, taking his leave of the elder
+Dant\`es, followed the young man down and went to find Danglars who was
+waiting for him on the corner of the Rue Senac.
+
+`Well?' Danglars asked. `Did you see him?'
+
+`I have just left them,' said Caderousse.
+
+`And did he talk about his hope of being made captain?'
+
+`He spoke of it as though he had already been appointed.'
+
+`Patience!' Danglars said. `It seems to me that he is in rather too much
+of a hurry.'
+
+`Why, it seems Monsieur Morrel has given him his word.'
+
+`So he is pleased?'
+
+`He is even insolent about it. He has already offered me his services,
+like some superior personage; he wanted to lend me money, like some
+banker or other.'
+
+`You refused?'
+
+`Indeed I did, though I could well have accepted, since I am the one who
+gave him the first silver coins he ever had in his hands. But now
+Monsieur Dant\`es has no need of anyone: he is going to be a captain.'
+
+`Huh!' said Danglars. `He's not one yet.'
+
+`My God, it would be a fine thing indeed if he wasn't,' said Caderousse.
+`Otherwise there will be no talking to him.'
+
+`If we really want,' said Danglars, `he will stay as he is, and perhaps
+even become less than he is.'
+
+`What do you mean?'
+
+`Nothing, I was talking to myself. Is he still in love with the
+beautiful Catalan?'
+
+`Madly. He has gone there now; but, unless I am gravely mistaken, he
+will not find things altogether to his liking.'
+
+`Explain.'
+
+`What does it matter?'
+
+`This is more important than you may think. You don't like Dant\`es, do
+you?'
+
+`I don't like arrogance.'
+
+`Well, then: tell me what you know about the Catalan woman.'
+
+`I have no positive proof, but I have seen things, as I said, that make
+me think the future captain will not be pleased with what he finds
+around the Chemin des Vieilles-Infirmeries.'
+
+`What have you seen? Come on, tell me.'
+
+`Well, I have observed that every time Merc\'ed\`es comes into town, she is
+accompanied by a large Catalan lad, with black eyes, ruddy cheeks, very
+dark in colour and very passionate, whom she calls ``my cousin''.'
+
+`Ah, indeed! And do you think this cousin is courting her?'
+
+`I imagine so: what else does a fine lad of twenty-one do to a pretty
+girl of seventeen?'
+
+`And you say that Dant\`es has gone to Les Catalans?'
+
+`He left before me.'
+
+`Suppose we were to go in the same direction, stop in the R\'eserve and,
+over a glass of La Malgue wine, learn what we can learn.'
+
+`Who would tell us anything?'
+
+`We shall be on the spot and we'll see what has happened from Dant\`es'
+face.'
+
+`Let's go then,' said Caderousse. `But you are paying?'
+
+`Certainly,' Danglars replied.
+
+The two of them set off at a brisk pace for the spot they had mentioned
+and, when they arrived, called for a bottle and two glasses.
+
+Old Pamphile had seen Dant\`es go by less than two minutes before. Certain
+that he was in Les Catalans, they sat under the budding leaves of the
+plane-trees and sycamores, in the branches of which a happy band of
+birds was serenading one of the first fine days of spring.
+
+\bigskip
+
+\bigskip
+
+\mychapter{Les Catalans}
+
+A hundred yards away from the place where the two friends, staring into
+the distance with their ears pricked, were enjoying the sparkling wine
+of La Malgue, lay the village of Les Catalans, behind a bare hillock
+ravaged by the sun and the mistral.
+
+One day, a mysterious group of colonists set out from Spain and landed
+on this spit of land, where it still resides today. No one knew where
+they had come from or what language they spoke. One of the leaders, who
+understood Proven\c{c}al, asked the commune of Marseille to give them this
+bare and arid promontory on to which, like the sailors of Antiquity,
+they had drawn up their boats. The request was granted and, three months
+later, a little village grew up around the twelve or fifteen boats that
+brought these gypsies of the sea.
+
+The same village, built in a bizarre and picturesque manner that is
+partly Moorish and partly Spanish, is the one that can be seen today,
+inhabited by the descendants of those men, who speak the language of
+their forefathers. For three or four centuries they have remained
+faithful to the little promontory on which they first landed, clinging
+to it like a flock of seabirds, in no way mixing with the inhabitants of
+Marseille, marrying among themselves and retaining the habits and dress
+of their motherland, just as they have retained its tongue.
+
+The reader must follow us along the only street of the little village
+and enter one of those houses, to the outside of which the sunlight has
+given that lovely colour of dead leaves which is peculiar to the
+buildings of the country; with, inside, a coat of whitewash, the only
+decoration of a Spanish \emph{posada}.
+
+A lovely young girl with jet-black hair and the velvet eyes of a
+gazelle, was standing, leaning against an inner wall, rubbing an
+innocent sprig of heather between slender fingers like those on a
+classical statue, and pulling off the flowers, the remains of which were
+already strewn across the floor. At the same time, her arms, naked to
+the elbow, arms that were tanned but otherwise seemed modelled on those
+of the Venus of Arles, trembled with a sort of feverish impatience, and
+she was tapping the ground with her supple, well-made foot, revealing a
+leg that was shapely, bold and proud, but imprisoned in a red cotton
+stocking patterned in grey and blue lozenges.
+
+A short distance away, a tall young man of between twenty and twenty-two
+was sitting on a chair, rocking it fitfully on two legs while supporting
+himself on his elbow against an old worm-eaten dresser and watching her
+with a look that combined anxiety with irritation. His eyes were
+questioning, but those of the young woman, firm and unwavering,
+dominated their conversation.
+
+`Please, Merc\'ed\`es,' the man said. `Easter is coming round again; it's
+the time for weddings. Give me your answer!'
+
+`You have had it a hundred times, Fernand, and you really must like
+torturing yourself, to ask me again.'
+
+`Well, repeat it, I beg you, repeat it once more so that I can come to
+believe it. Tell me, for the hundredth time, that you reject my love,
+even though your mother approves of me. Convince me that you are
+prepared to trifle with my happiness and that my life and my death are
+nothing to you. My God, my God! To dream for ten years of being your
+husband, Merc\'ed\`es, and then to lose that hope which was the sole aim of
+my existence!'
+
+`I, at least, never encouraged you in that hope, Fernand,' Merc\'ed\`es
+replied. `You cannot accuse me of having, even once, flirted with you.
+I've said repeatedly: ``I love you like a brother, but never demand
+anything more from me than this fraternal love, because my heart belongs
+to another.'' Isn't that what I have always told you, Fernand?'
+
+`Yes, Merc\'ed\`es, I know,' the young man replied. `Yes, you have always
+been laudably, and cruelly, honest with me. But are you forgetting that
+it is a sacred law among the Catalans only to marry among themselves?'
+
+`You are wrong, Fernand, it is not a law, but a custom, nothing more;
+and I advise you not to appeal to that custom on your behalf. You have
+been chosen for conscription, Fernand, and the freedom that you now
+enjoy is merely a temporary reprieve: at any moment you might be called
+up to serve in the army. Once you are a soldier, what will you do with
+me -- I mean, with a poor orphan girl, sad and penniless, whose only
+possession is a hut, almost in ruins, in which hang a few worn nets, the
+paltry legacy that was left by my father to my mother, and by my mother
+to me? Consider, Fernand, that in the year since she died, I have
+virtually lived on charity! Sometimes you pretend that I am of some use
+to you, so that you can be justified in sharing your catch with me. And
+I accept, Fernand, because you are the son of one of my father's
+brothers, because we grew up together and, beyond that, most of all,
+because it would hurt you too much if I were to refuse. But I know full
+well that the fish I take to the market, which bring me the money to buy
+the hemp that I spin -- I know, full well, Fernand, that it is charity.'
+
+`What does it matter, Merc\'ed\`es, poor and alone as you are, when you suit
+me thus better than the daughter of the proudest shipowner or the
+richest banker in Marseille? What do people like us need? An honest wife
+and a good housekeeper. Where could I find better than you on either
+score?'
+
+`Fernand,' Merc\'ed\`es replied, shaking her head, `one is not a good
+housekeeper and one cannot promise to remain an honest woman when one
+loves a man other than one's husband. Be satisfied with my friendship
+for, I repeat, that is all I can promise you and I only promise what I
+am sure of being able to give.'
+
+`Yes, I understand,' said Fernand. `You bear your own poverty patiently,
+but you are afraid of mine. Well, Merc\'ed\`es, with your love, I would try
+to make my fortune; you would bring me luck and I should become rich. I
+can cast my fisherman's net wider, I can take a job as a clerk in a
+shop, I could even become a merchant myself!'
+
+`You can't do any such thing, Fernand: you're a soldier and, if you stay
+here among the Catalans, it is because there is no war for you to fight.
+So remain a fisherman, don't dream of things that will make reality seem
+even more terrible to you -- and be content with my friendship, because
+I cannot give you anything else.'
+
+`You are right, Merc\'ed\`es, I shall be a seaman; and, instead of the dress
+of our forefathers which you despise, I shall have a patent-leather hat,
+a striped shirt and a blue jacket with anchors on the buttons. That's
+how a man needs to dress, isn't it, if he wants to please you?'
+
+`What do you mean?' Merc\'ed\`es asked, with an imperious look. `What do you
+mean? I don't understand you.'
+
+`What I mean, Merc\'ed\`es, is that you are only so hard-hearted and cruel
+towards me because you are waiting for someone who is dressed like that.
+But it may be that the one you await is fickle and, even if he isn't,
+the sea will be fickle for him.'
+
+`Fernand!' Merc\'ed\`es exclaimed. `I thought you were kind, but I was
+mistaken. It is wicked of you to call on the wrath of God to satisfy
+your jealousy. Yes, I will not deny it: I am waiting for the man you
+describe, I love him and if he does not return, instead of blaming the
+fickleness that it pleases you to speak of, I shall think that he died
+loving me.'
+
+The young Catalan made an angry gesture.
+
+`I understand what that means, Fernand: you want to blame him because I
+do not love you, and cross his dagger with your Catalan knife! What good
+would that do you? If you were defeated, you would lose my friendship;
+if you were the victor, you would see that friendship turn to hatred.
+Believe me, when a woman loves a man, you do not win her heart by
+crossing swords with him. No, Fernand, don't be carried away by evil
+thoughts. Since you cannot have me as your wife, be content to have me
+as a friend and a sister. In any case,' she added, her eyes anxious and
+filling with tears, `stay, Fernand: you said, yourself, a moment ago
+that the sea is treacherous. It is already four months since he left,
+and I have counted a lot of storms in the past four months!'
+
+Fernand remained impassive. He made no attempt to wipe the tears that
+were running down Merc\'ed\`es cheeks, yet he would have given a glass of
+his own blood for each of those tears; but they were shed for another.
+He got up, walked round the hut and returned, stopping before Merc\'ed\`es
+with a dark look in his eyes and clenched fists.
+
+`Come now, Merc\'ed\`es,' he said. `Answer me once more: have you truly made
+up your mind?'
+
+`I love Edmond Dant\`es,' the young woman said, coldly, `and no one will
+be my husband except Edmond.'
+
+`And you will love him for ever?'
+
+`As long as I live.'
+
+Fernand bent his head like a discouraged man, gave a sigh that was like
+a groan, then suddenly looked up with clenched teeth and nostrils
+flared.
+
+`But suppose he is dead?'
+
+`If he is dead, I shall die.'
+
+`And if he forgets you?'
+
+`Merc\'ed\`es!' cried a happy voice outside the house. `Merc\'ed\`es!'
+
+`Ah!' the girl exclaimed, reddening with joy and leaping up, filled with
+love. `You see that he has not forgotten me: he is here!' And she ran to
+the door, and opened it, crying: `Come to me, Edmond! I am here!'
+
+Pale and trembling, Fernand stepped back as a traveller might do at the
+sight of a snake; and, stumbling against his chair, fell back into it.
+
+Edmond and Merc\'ed\`es were in each other's arms. The hot Marseille sun,
+shining through the doorway, drenched them in a flood of light. At
+first, they saw nothing of what was around them. A vast wave of
+happiness cut them off from the world and they spoke only those
+half-formed words that are the outpourings of such intense joy that they
+resemble the expression of pain.
+
+Suddenly, Edmond noticed the sombre figure of Fernand, pale and
+threatening in the darkness. With a gesture of which he was not even
+himself aware, the young Catalan had laid his hand on the knife at his
+belt.
+
+`Oh, forgive me,' Dant\`es said, raising an eyebrow. `I did not realize
+that we were not alone.'
+
+Then, turning to Merc\'ed\`es, he asked: `Who is this gentleman?'
+
+`He will be your best friend, Dant\`es, because he is my friend, my cousin
+and my brother: this is Fernand, which means he is the man whom, after
+you, I love most in the world. Don't you recognize him?'
+
+`Ah! Yes, indeed,' said Edmond. And, without leaving Merc\'ed\`es whose hand
+he held clasped in one of his own, he extended the other with a cordial
+gesture towards the Catalan. But Fernand, instead of responding to this
+sign of friendship, remained as silent and motionless as a statue. It
+was enough to make Edmond look enquiringly from Merc\'ed\`es, who was
+trembling with emotion, to Fernand, sombre and threatening.
+
+That one glance told him everything. His brow clouded with rage.
+
+`I did not realize that I had hurried round to see you, Merc\'ed\`es, only
+to find an enemy here.'
+
+`An enemy!' Merc\'ed\`es exclaimed, looking angrily in the direction of her
+cousin. `An enemy, in my house, you say, Edmond! If I thought that, I
+should take your arm and go with you to Marseille, leaving this house,
+never to return.'
+
+Fernand's eyes lit up with rage.
+
+`And if any misfortune were to befall you, my dear Edmond,' she
+continued, with the same cool determination, proving to Fernand that she
+had read the sinister depths of his mind, `if any misfortune should
+happen to you, I should climb up the Cap de Morgiou and throw myself
+headlong on to the rocks.'
+
+The blood drained from Fernand's face.
+
+`But you are wrong, Edmond,' she continued. `You have no enemies here.
+The only person here is Fernand, my brother, who is going to shake your
+hand like a true friend.'
+
+With these words, the girl turned her imperious face towards the Catalan
+and he, as if mesmerized by her look, slowly came across to Edmond and
+held out his hand. His hatred, like an impotent wave, had been broken
+against the ascendancy that the woman exercised over him. But no sooner
+had he touched Edmond's hand than he felt he had done all that it was
+possible for him to do, and rushed out of the house.
+
+`Ah!' he cried, running along like a madman and burying his hands in his
+hair. `Ah! Who will deliver me from this man? Wretch that I am, wretch
+that I am!'
+
+`Hey, Catalan! Hey, Fernand! Where are you going?' a voice called to
+him.
+
+The young man stopped dead, looked around and saw Caderousse at the
+table with Danglars under a leafy arbour.
+
+`What now,' said Caderousse, `why don't you join us? Are you in such a
+hurry that you don't have time to say hello to your friends?'
+
+`Especially when they still have an almost full bottle in front of
+them,' Danglars added.
+
+Fernand stared at the two men with a dazed look, and did not answer.
+
+`He seems a bit down in the dumps,' Danglars said, nudging Caderousse
+with his knee. `Could we be wrong? Contrary to what we thought, could it
+be that Dant\`es has got the upper hand?'
+
+`Why! We'll just have to find out,' said Caderousse. And, turning back
+to the young man, he said: `Well, Catalan, have you made up your mind?'
+
+Fernand wiped the sweat from his brow and slowly made his way under the
+vault of leaves: its shade appeared to do something to calm his spirits
+and its coolness to bring a small measure of well-being back to his
+exhausted body.
+
+`Good day,' he said. `I think you called me?'
+
+`I called you because you were running along like a madman and I was
+afraid you would go and throw yourself into the sea,' Caderousse said
+with a laugh. `Devil take it, when one has friends, it is not only to
+offer them a glass of wine, but also to stop them drinking three or four
+pints of water.'
+
+Fernand gave a groan that resembled a sob and let his head fall on to
+his wrists, which were crossed on the table.
+
+`Well now, do you want me to tell you what, Fernand?' Caderousse
+continued, coming straight to the point with that crude brutality of the
+common man whose curiosity makes him forget any sense of tact. `You look
+to me like a man who has been crossed in love!' He accompanied this quip
+with a roar of laughter.
+
+`Huh!' Danglars retorted. `A lad built like that is not likely to be
+unhappy in love. You must be joking, Caderousse.'
+
+`Not at all,' the other said. `Just listen to him sigh. Come, Fernand,
+come now, lift your nose off the table and tell us: it is not very
+mannerly to refuse to answer your friends when they are asking after
+your health.'
+
+`My health is fine,' said Fernand, clenching his fists and without
+looking up.
+
+`Ah, Danglars, you see now,' Caderousse said, winking at his friend.
+`This is how things are: Fernand here, who is a fine, brave Catalan, one
+of the best fishermen in Marseille, is in love with a beautiful girl
+called Merc\'ed\`es; but it appears that, unfortunately, the girl herself is
+in love with the second mate of the \emph{Pharaon}; and, as the
+\emph{Pharaon} came into port this very day \ldots{} You follow me?'
+
+`No, I don't,' said Danglars.
+
+`Poor Fernand has got his marching orders,' Caderousse continued.
+
+`So, what then?' said Fernand, lifting his head and looking at
+Caderousse, like a man anxious to find someone on whom to vent his
+wrath. `Merc\'ed\`es is her own woman, isn't she? She is free to love
+whomsoever she wants.'
+
+`Oh, if that's how you take it,' said Caderousse, `that's another
+matter. I thought you were a Catalan, and I have been told that the
+Catalans are not men to let themselves be pushed aside by a rival. They
+even said that Fernand, in particular, was fearsome in his vengeance.'
+
+Fernand smiled pityingly. `A lover is never fearsome,' he said.
+
+`Poor boy!' Danglars continued, pretending to grieve for the young man
+from the bottom of his heart. `What do you expect? He didn't imagine
+that Dant\`es would suddenly return like this; he may have thought him
+dead, or unfaithful. Who knows? Such things are all the more distressing
+when they happen to us suddenly.'
+
+`In any event,' Caderousse said, drinking as he spoke and starting to
+show the effects of the heady wine of La Malgue, `in any event, Fernand
+is not the only person to have been put out by Dant\`es' fortunate return,
+is he, Danglars?'
+
+`No, what you say is true -- and I might even add that it will bring him
+misfortune.'
+
+`No matter,' Caderousse went on, pouring out some wine for Fernand and
+replenishing his own glass for the eighth or tenth time (though Danglars
+had hardly touched the one in front of him). `No matter. In the meantime
+he will marry Merc\'ed\`es, the lovely Merc\'ed\`es. He has come back for that,
+at least.'
+
+While the other was speaking, Danglars directed a piercing look at the
+young man, on whose heart Caderousse's words were falling like molten
+lead.
+
+`And when is the wedding?' he asked.
+
+`Oh, it's not settled yet,' Fernand muttered.
+
+`No, but it will be,' said Caderousse, `just as surely as Dant\`es will be
+captain of the \emph{Pharaon}, don't you think, Danglars?'
+
+Danglars shuddered at this unexpected stab and turned towards
+Caderousse, studying his face now to see if the blow had been
+premeditated; but he saw nothing except covetousness on this face,
+already almost besotted with drink.
+
+`Very well,' he said, filling the glasses. `Then let's drink to Captain
+Edmond Dant\`es, husband of the beautiful Catalan!'
+
+Caderousse lifted his glass to his lips with a sluggish hand and drained
+it in one gulp. Fernand took his and dashed it to the ground.
+
+`Ha, ha!' said Caderousse. `What can I see over there, on the crest of
+the hill, coming from the Catalan village? You look, Fernand, your
+eyesight is better than mine. I think I'm starting to see less clearly
+and, as you know, wine is a deceptive imp: it looks to me like two
+lovers walking along, side by side and hand in hand. Heaven forgive me!
+They don't realize that we can see them and, look at that, they're
+kissing each other!'
+
+Danglars marked every single trait of the anguish that crossed Fernand's
+face, as its features changed before his eyes.
+
+`Do you know who they are, Monsieur Fernand?' he asked.
+
+`Yes,' the other replied dully. `It's Monsieur Edmond and Mademoiselle
+Merc\'ed\`es.'
+
+`There! You see?' said Caderousse. `I didn't recognize them. Hey,
+Dant\`es! Hey, there, pretty girl! Come down for a moment and let us know
+when the wedding is: Fernand here is so stubborn, he won't tell us.'
+
+`Why don't you be quiet!' said Danglars, pretending to restrain
+Caderousse who, with drunken obstinacy, was leaning out of the arbour.
+`Try to stay upright and let the lovers enjoy themselves in peace. Why,
+look at Monsieur Fernand: he's being sensible. Why not try and do the
+same?'
+
+It may be that Fernand, driven to the limit and baited by Danglars like
+a bull by the banderilleros, would finally have leapt forward, for he
+had already stood up and appeared to be gathering strength to throw
+himself at his rival; but Merc\'ed\`es, upright and laughing, threw back her
+lovely head and shot a glance from her clear eyes. At that moment,
+Fernand recalled her threat to die if Edmond should die, and slumped
+back, discouraged, on his chair.
+
+Danglars looked at the two men, one besotted by drink, the other
+enslaved by love, and murmured: `I shall get nothing out of these
+idiots: I fear I am sitting between a drunkard and a coward. On the one
+hand, I have a man eaten up by envy, drowning his sorrows in drink when
+he should be intoxicated with venom; on the other, a great simpleton
+whose mistress has just been snatched away from under his very nose, who
+does nothing except weep like a child and feel sorry for himself. And
+yet he has the blazing eyes of a Spaniard, a Sicilian or a Calabrian --
+those people who are such experts when it comes to revenge -- and fists
+that would crush a bull's head as surely as a butcher's mallet. Fate is
+definitely on Edmond's side: he will marry the beautiful girl, become
+captain and laugh in our faces. Unless \ldots' (a pallid smile hovered
+on Danglars' lips) ` \ldots{} unless I take a hand in it.'
+
+Caderousse, half standing, with his fists on the table, was still
+shouting: `Hello, there! Hello! Edmond! Can't you see your friends, or
+are you too proud to talk to them?'
+
+`No, my dear Caderousse,' Edmond replied. `I am not proud, but I am
+happy -- and happiness, I believe, is even more dazzling than pride.'
+
+`At last, all is explained,' said Caderousse. `Ho! Good day to you,
+Madame Dant\`es.'
+
+Merc\'ed\`es bowed gravely and said: `That is not yet my name, and in my
+country they say it is bad luck to call a young woman by the name of her
+betrothed before he has become her husband. So, please, call me
+Merc\'ed\`es.'
+
+`You must forgive my good neighbour, Caderousse,' Dant\`es said. `He so
+seldom makes a mistake!'
+
+`So, the wedding is to take place shortly, Monsieur Dant\`es?' Danglars
+said, greeting the two young people.
+
+`As soon as possible, Monsieur Danglars. Today, everything is to be
+agreed at my father's house and tomorrow or, at the latest, the day
+after, we shall have the engagement dinner here at La R\'eserve. I hope
+that my friends will join us: you, of course, are invited, Monsieur
+Danglars, and you, too, Caderousse.'
+
+`And Fernand?' Caderousse asked, with a coarse laugh. `Will Fernand be
+there as well?'
+
+`My wife's brother is my brother,' Edmond said, `and both Merc\'ed\`es and I
+should regret it deeply if he were to be separated from us at such a
+time.'
+
+Fernand opened his mouth to reply, but his voice caught in his throat
+and he could not utter a single word.
+
+`The agreement today, the engagement tomorrow or the day after: by
+George! You're in a great hurry, Captain.'
+
+`Danglars,' Edmond said with a smile, `I shall say the same to you as
+Merc\'ed\`es did a moment ago: don't give me a title that does not yet
+belong to me, it could bring me ill luck.'
+
+`My apologies,' Danglars replied. `I was merely saying that you seem in
+a great hurry. After all, we have plenty of time: the \emph{Pharaon}
+will not set sail for a good three months.'
+
+`One always hurries towards happiness, Monsieur Danglars, because when
+one has suffered much, one is at pains to believe in it. But I am not
+impelled by mere selfishness. I have to go to Paris.'
+
+`Ah, indeed! To Paris. And will this be your first visit, Dant\`es?'
+
+`Yes.'
+
+`You have business there?'
+
+`Not of my own, but a final request that I must carry out for our poor
+Captain Lecl\`ere. You understand, Danglars, the mission is sacred to me.
+In any event, don't worry. I shall be gone only as long as it takes to
+go there and return.'
+
+`Yes, yes, I understand,' Danglars said aloud; then he added, under his
+breath: `To Paris, no doubt to deliver the letter that the marshal gave
+him. By heaven! That letter has given me an idea -- an excellent idea!
+Ah, Dant\`es, my friend, your name is not yet Number One on the register
+of the \emph{Pharaon}.'
+
+Then, turning back to Edmond who was leaving, he shouted: `\emph{Bon
+voyage!}'
+
+`Thank you,' Edmond replied, turning around and giving a friendly wave.
+Then the two lovers went on their way, calm and happy as two chosen
+souls heading for paradise.
+
+\backmatter
+\end{document}
+
+
