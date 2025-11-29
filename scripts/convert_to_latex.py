@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 
 # Mapping Unicode to LaTeX (without quotes — handled by csquotes)
 UNICODE_LATEX = {
+    # punctuation and ligatures
     '…': r'\ldots',
     '“‘': r'``\hspace{0pt}`',    '’”': r"'\hspace{0pt}''",
     '“': '``',      '”': "''",
@@ -12,6 +13,8 @@ UNICODE_LATEX = {
     'ç': r'\c{c}',  'Ç': r'\c{C}',
     'ñ': r'\~n',    'Ñ': r'\~N',
     'œ': r'\oe ',   'Œ': r'\OE ',
+
+    # A vowels
     'à': r'\`a',    'À': r'\`A',
     'á': r"\'a",    'Á': r"\'A",
     'â': r'\^a',    'Â': r'\^A',
@@ -19,6 +22,54 @@ UNICODE_LATEX = {
     'ã': r'\~a',    'Ã': r'\~A',
     'å': r'\r a',   'Å': r'\r A',
     'ā': r'\=a',    'Ā': r'\=A',
+    'ă': r'\u a',   'Ă': r'\u A',
+    'ą': r'\k a',   'Ą': r'\k A',
+
+    # E vowels
+    'è': r'\`e',    'È': r'\`E',
+    'é': r"\'e",    'É': r"\'E",
+    'ê': r'\^e',    'Ê': r'\^E',
+    'ë': r'\"e',    'Ë': r'\"E',
+    'ē': r'\=e',    'Ē': r'\=E',
+    'ĕ': r'\u e',   'Ĕ': r'\u E',
+    'ė': r'\.e',    'Ė': r'\.E',
+    'ę': r'\k e',   'Ę': r'\k E',
+
+    # I vowels
+    'ì': r'\`i',    'Ì': r'\`I',
+    'í': r"\'i",    'Í': r"\'I",
+    'î': r'\^i',    'Î': r'\^I',
+    'ï': r'\"i',    'Ï': r'\"I',
+    'ī': r'\=i',    'Ī': r'\=I',
+    'ĭ': r'\u i',   'Ĭ': r'\u I',
+    'į': r'\k i',   'Į': r'\k I',
+    'ı': r'{\i}',   # dotless i
+
+    # O vowels
+    'ò': r'\`o',    'Ò': r'\`O',
+    'ó': r"\'o",    'Ó': r"\'O",
+    'ô': r'\^o',    'Ô': r'\^O',
+    'ö': r'\"o',    'Ö': r'\"O',
+    'õ': r'\~o',    'Õ': r'\~O',
+    'ō': r'\=o',    'Ō': r'\=O',
+    'ŏ': r'\u o',   'Ŏ': r'\u O',
+    'ő': r'\H o',   'Ő': r'\H O',  # double acute
+
+    # U vowels
+    'ù': r'\`u',    'Ù': r'\`U',
+    'ú': r"\'u",    'Ú': r"\'U",
+    'û': r'\^u',    'Û': r'\^U',
+    'ü': r'\"u',    'Ü': r'\"U',
+    'ū': r'\=u',    'Ū': r'\=U',
+    'ŭ': r'\u u',   'Ŭ': r'\u U',
+    'ů': r'\r u',   'Ů': r'\r U',
+    'ű': r'\H u',   'Ű': r'\H U',
+    'ų': r'\k u',   'Ų': r'\k U',
+
+    # Y vowels (sometimes accented in foreign languages)
+    'ý': r"\'y",    'Ý': r"\'Y",
+    'ÿ': r'\"y',    'Ÿ': r'\"Y',
+    'ȳ': r'\=y',    'Ȳ': r'\=Y',
 }
 
 
@@ -73,9 +124,13 @@ if __name__ == '__main__':
     output_file = sys.argv[2]
 
     with open(input_file, 'r', encoding='utf-8') as f:
-        html = f.read()
+        format_text = f.read()
 
-    latex = html_to_latex(html)
+    if input_file.endswith(".html"):
+        latex = html_to_latex(format_text)
+    else:
+        latex = replace_unicode_latex(format_text)
+
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(latex)
 
